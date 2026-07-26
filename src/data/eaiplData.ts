@@ -8,6 +8,7 @@ import {
   ClientTestimonial,
   BranchOffice,
 } from '../types';
+import { OFFICIAL_PROJECT_REELS } from './mediaData';
 
 export const COMPANY_INFO = {
   name: 'ELECTRO ACOUSTIC INFOTECH PRIVATE LIMITED',
@@ -66,12 +67,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/professional-audio.png',
     description:
       'Precision-engineered acoustic sound systems incorporating DSP beam-steering line arrays, boundary microphones, digital matrix mixers, and acoustic echo cancellation (AEC) tailored for auditoriums, council chambers, and high-noise environments.',
-    heroImage: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Legislative Assembly & Parliament Chambers',
       'High-Capacity Civic & Cultural Auditoriums',
@@ -113,12 +110,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/audio-visual.png',
     description:
       'End-to-end video distribution, fine-pitch indoor/outdoor LED video walls, laser projection systems, interactive flat panels, and AV-over-IP matrix networks designed for corporate boardrooms, command centers, and university lecture halls.',
-    heroImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Executive C-Suite Boardrooms & Conference Rooms',
       'University Lecture Theatres & Smart Classrooms',
@@ -156,11 +149,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/video-wall.png',
     description:
       'Turnkey video wall solutions featuring ultra-narrow bezel LCD matrix systems and pixel pitches down to 0.7mm for 24/7 mission-critical monitoring, public info displays, and luxury lobby video walls.',
-    heroImage: 'https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Command & Control Operation Centers (NOC/SOC)',
       'Corporate Headquarters Reception Lobbies',
@@ -198,10 +188,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/conference-system.png',
     description:
       'Advanced delegate voting and speech systems designed for parliamentary chambers, municipal corporations, and international summit halls. Features delegate unit tracking, automatic camera pan-tilt-zoom positioning, and ISO 20109 interpretation booths.',
-    heroImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'State Legislative Assemblies & Parliament Houses',
       'Municipal Corporation Meeting Halls',
@@ -239,10 +227,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/cctv.png',
     description:
       'Enterprise surveillance architecture with AI-driven analytics including ANPR, facial recognition, crowd management, object left behind, and perimeter thermal sensing connected to centralized VMS software.',
-    heroImage: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Smart City Infrastructure & Traffic Intersection Monitoring',
       'Industrial Manufacturing Plants & Energy Grids',
@@ -280,10 +266,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/access-control.png',
     description:
       'Comprehensive physical security solutions featuring touchless face recognition, RFID/NFC mobile credentials, automated turnstiles, flap barriers, and hydraulic bollards integrated with HR management systems.',
-    heroImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Corporate Campuses & IT Parks',
       'High-Security Data Centers & Server Rooms',
@@ -321,10 +305,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/fire-alarm.png',
     description:
       'Turnkey fire detection and alarm solutions comprising intelligent addressable smoke/heat detectors, aspirating smoke detection (VESDA), clean agent gas suppression, and integrated public address life safety evacuation.',
-    heroImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Commercial High-Rise Buildings & Shopping Malls',
       'Data Centers & Mission Critical Rooms',
@@ -362,10 +344,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/lighting.png',
     description:
       'Turnkey stage solutions encompassing motorized curtain tracks, counterweight rigging, DMX512/RDM intelligent moving heads, LED theatrical profiles, followspots, and computerized light control consoles for state auditoriums and cultural centers.',
-    heroImage: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Cultural Centers & Town Auditoriums',
       'University & School Performing Arts Centers',
@@ -403,10 +383,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/automation.png',
     description:
       'Custom-programmed automation processors pairing custom graphic user interfaces (GUIs) on tabletop or wall-mounted touch panels to streamline complex multi-device operations into intuitive single-touch preset buttons.',
-    heroImage: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Commercial High-Rise Offices & IT Parks',
       'Luxury Hotels & Resorts',
@@ -444,10 +422,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/networking.png',
     description:
       'Robust enterprise networking infrastructure including Cat6A shield copper cabling, multi-gigabit fiber backbones, managed L2/L3 PoE+ switches, and high-density Wi-Fi 6E/7 access points engineered for low-latency AV-over-IP and security traffic.',
-    heroImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Data Centers & Server Server Farms',
       'Enterprise Corporate Campuses',
@@ -485,10 +461,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/control-room.png',
     description:
       'Complete turnkey control room environments incorporating ISO 11064 ergonomic console furniture, multi-operator video wall controllers, ambient acoustic treatment, and redundant power infrastructure for round-the-clock critical operations.',
-    heroImage: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Smart City Integrated Command & Control Centers (ICCC)',
       'Power Grid & Energy Dispatch Rooms',
@@ -526,10 +500,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/auditorium.png',
     description:
       'Comprehensive EPC contracts for civic, university, and corporate auditoriums combining electro-acoustic sound systems, motorized stage drapes, LED video walls, acoustic wall cladding, and centralized touch control.',
-    heroImage: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'State Government & Municipal Civic Halls',
       'University & College Convocation Centers',
@@ -567,10 +539,8 @@ export const SOLUTIONS: SolutionCategory[] = [
     icon: '/assets/icons/solutions/healthcare.png',
     description:
       'High-grade medical AV integration for super-specialty hospitals, featuring uncompressed zero-latency 4K surgical video routing, OT glass touch panels, telemedicine streaming systems, and nurse call systems conforming to medical safety standards.',
-    heroImage: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80',
-    gallery: [
-      'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80'
-    ],
+    heroImage: '/assets/hero/homepage-hero.jpg',
+    gallery: [],
     applications: [
       'Digital Operation Theatres (Modular OTs)',
       'Medical College Teaching Auditoriums',
@@ -611,7 +581,7 @@ export const INDUSTRIES: IndustrySector[] = [
     description: 'Secure and scalable integrated technology solutions for government offices, public infrastructure, and institutional facilities.',
     overview: 'Secure and scalable integrated technology solutions for government offices, public infrastructure, and institutional facilities.',
     icon: '/assets/icons/industries/government.png',
-    image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/hero/homepage-hero.jpg',
     primaryNeeds: [
       'Redundant Mission-Critical Video Wall Processors',
       'Secure Encrypted Delegate Voting & Conference Systems',
@@ -635,7 +605,7 @@ export const INDUSTRIES: IndustrySector[] = [
     description: 'Professional AV, collaboration, surveillance, and smart workplace solutions for modern corporate environments.',
     overview: 'Professional AV, collaboration, surveillance, and smart workplace solutions for modern corporate environments.',
     icon: '/assets/icons/industries/corporate.png',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/hero/homepage-hero.jpg',
     primaryNeeds: [
       'Seamless Zoom/Teams One-Touch Join Integration',
       'Acoustic Echo Cancellation for Clear Teleconferencing',
@@ -659,7 +629,7 @@ export const INDUSTRIES: IndustrySector[] = [
     description: 'Advanced classroom audio visual systems, auditorium solutions, campus communication, and learning technologies.',
     overview: 'Advanced classroom audio visual systems, auditorium solutions, campus communication, and learning technologies.',
     icon: '/assets/icons/industries/education.png',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/hero/homepage-hero.jpg',
     primaryNeeds: [
       'Automated Instructor Tracking Cameras',
       'Digital Podium with Integrated Interactive Writing Displays',
@@ -683,7 +653,7 @@ export const INDUSTRIES: IndustrySector[] = [
     description: 'Reliable communication, public address, emergency notification, and integrated AV solutions for healthcare facilities.',
     overview: 'Reliable communication, public address, emergency notification, and integrated AV solutions for healthcare facilities.',
     icon: '/assets/icons/industries/healthcare.png',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/hero/homepage-hero.jpg',
     primaryNeeds: [
       'Zero-Latency Surgical Video Transmission in OT',
       'Antimicrobial Sealed Control Touchscreens',
@@ -707,7 +677,7 @@ export const INDUSTRIES: IndustrySector[] = [
     description: 'Robust surveillance, networking, automation, and safety systems designed for industrial operations and manufacturing environments.',
     overview: 'Robust surveillance, networking, automation, and safety systems designed for industrial operations and manufacturing environments.',
     icon: '/assets/icons/industries/industrial.png',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/hero/homepage-hero.jpg',
     primaryNeeds: [
       'Explosion-Proof / Weatherproof IP Cameras & PA Speakers',
       'High-Capacity Industrial Network Switches & Fiber Backbone',
@@ -731,7 +701,7 @@ export const INDUSTRIES: IndustrySector[] = [
     description: 'Integrated audio visual, conference, digital signage, and guest experience solutions for hotels and hospitality spaces.',
     overview: 'Integrated audio visual, conference, digital signage, and guest experience solutions for hotels and hospitality spaces.',
     icon: '/assets/icons/industries/hospitality.png',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
+    image: '/assets/hero/homepage-hero.jpg',
     primaryNeeds: [
       'Multi-Zone Audio Matrixing with Flexible Room Partitioning',
       'Automated Scene Lighting Control for Weddings & Conferences',
@@ -749,197 +719,44 @@ export const INDUSTRIES: IndustrySector[] = [
   },
 ];
 
-export const PROJECTS: ProjectCaseStudy[] = [
-  {
-    id: 'proj-1',
-    title: '1,800-Seat State Cultural Auditorium Turnkey Integration',
-    clientName: 'Department of Cultural Affairs, State Govt.',
-    clientType: 'Auditorium',
-    location: 'Kolkata, West Bengal',
-    year: '2024',
-    category: 'Pro Audio, Stage & Acoustics',
-    summary:
-      'Complete end-to-end EPC execution including RT60 acoustic modeling, perforated wooden acoustics, Bose/JBL line array sound system, motorized stage drapery, and intelligent DMX theatrical lighting.',
-    challenge:
-      'The legacy hall suffered severe flutter echo (RT60 > 2.8s) rendering speech unintelligible and live acoustic musical performances distorted.',
-    solution:
-      'EAIPL deployed 3D EASE acoustic simulation, installed tuned Helmholtz resonators and fabric acoustic wall panels, reducing RT60 to 1.1s. Installed a dual 12-element line array system and 48-channel DMX stage lighting console.',
-    impactMetrics: [
-      'RT60 reduced from 2.8s to 1.1s (Optimal for acoustic & amplified music)',
-      'STI Speech Intelligibility score boosted to 0.72 (Excellent)',
-      '100% Uniform SPL coverage across all 1,800 seats (+/- 1.5dB variance)',
-    ],
-    installedEquipment: [
-      'Bose Professional ShowMatch Line Array System',
-      'Crown I-Tech High-Power Amplifiers',
-      'Biamp TesiraFORTÉ DSP Audio Matrix',
-      'Lutron / ETC Element 2 Lighting Console',
-      'Motorized Heavy-Duty Velvet Stage Curtains',
-    ],
-    galleryImages: [
-      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=1000&q=80',
-    ],
-    heroImage: 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=1000&q=80',
-    acousticsSpecs: 'Calculated Volume: 14,500 m³ | Targeted RT60: 1.1s @ 500Hz | Max SPL: 112 dB',
-    completionBadge: 'Verified Project Completion & Govt Handover',
-  },
-  {
-    id: 'proj-2',
-    title: 'Disaster Management Integrated Command & Control Center (ICCC)',
-    clientName: 'State Emergency Response Authority',
+export const PROJECTS: ProjectCaseStudy[] = OFFICIAL_PROJECT_REELS.map((reel) => {
+  const isGuwahati = reel.id === 'reel-03';
+  return {
+    id: reel.id,
+    type: 'facebook-reel',
+    mediaType: 'facebook-reel',
+    title: reel.title,
+    clientName: isGuwahati ? 'SSB, Sonarpur, Guwahati' : 'UGC, Delhi',
     clientType: 'Government',
-    location: 'Bhubaneswar, Odisha',
-    year: '2023',
-    category: 'AV Integration & Security',
-    summary:
-      'Mission-critical 24/7 command center featuring a 32-screen fine-pitch 1.2mm MicroLED video wall, Crestron NVX AV-over-IP matrix, Bosch CCTV video analytics, and ergonomic operator consoles.',
-    challenge:
-      'Required zero downtime visual aggregation of over 2,500 live CCTV feeds and satellite weather imagery during emergency cyclone operations.',
-    solution:
-      'Designed a fully redundant dual-controller Crestron NVX routing network connected to a Christie video wall processor, ensuring seamless multi-window layout switching in under 50ms.',
+    location: isGuwahati ? 'Guwahati, Assam' : 'New Delhi',
+    year: reel.date.includes('2025') ? '2025' : '2026',
+    category: reel.category || 'Govt Projects',
+    summary: reel.description,
+    challenge: isGuwahati
+      ? 'Delivering high-intelligibility audio reinforcement and seamless video conferencing setup for official government proceedings.'
+      : 'Modernizing conference room infrastructure for seamless digital collaboration and crystal-clear audio transmission.',
+    solution: isGuwahati
+      ? 'Turnkey audiovisual integration including digital conference microphones, acoustic sound reinforcement, and high-definition video displays.'
+      : 'Integrated conference room AV solution with digital signal processing, professional presentation displays, and high-intelligibility microphone arrays.',
     impactMetrics: [
-      '24/7/365 High-Availability Operation Zero-Downtime Architecture',
-      'Sub-50ms Source Switching Latency across 32 Screens',
-      'Integrated 48 Operator Stations with Noise-Canceling Audio Paging',
+      'Successfully delivered turnkey AV integration for official conference operations',
+      'Crystal-clear audio clarity and seamless digital meeting collaboration',
+      '100% On-schedule commissioning with verified EAIPL quality standards',
     ],
     installedEquipment: [
-      'Christie Velvet 1.2mm MicroLED Direct-View Video Wall',
-      'Crestron DigitalMedia NVX 4K60 4:4:4 AV-over-IP Transceivers',
-      'Bosch Video Management System (BVMS) with AI Analytics',
-      'Shure Microflex Wireless Operator Headset Systems',
+      'Digital Conference System',
+      'High-Definition Professional Display Unit',
+      'Acoustic DSP Signal Processing',
+      'Low-Noise Directional Microphone Array',
     ],
-    galleryImages: [
-      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80',
-    ],
-    heroImage: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1000&q=80',
-    completionBadge: 'Govt Commendation Awarded',
-  },
-  {
-    id: 'proj-3',
-    title: 'High Court Council Chamber Digital Delegate & Recording System',
-    clientName: 'High Court Judicial Secretariat',
-    clientType: 'Government',
-    location: 'Kolkata, West Bengal',
-    year: '2023',
-    category: 'Pro Audio & Conference',
-    summary:
-      'Custom digital delegate conference mic system with automated PTZ camera tracking, tamper-proof multichannel court recording, and digital voting terminals for 120 bench seats.',
-    challenge:
-      'Strict historic architectural preservation guidelines prevented visible wall chasing or intrusive cabling in the century-old heritage courtroom.',
-    solution:
-      'Utilized specialized wireless optical delegate microphones with AES-128 encryption and custom wooden wireways matched to the court mahogany woodwork.',
-    impactMetrics: [
-      '120 Active Delegate Units with Instant Auto PTZ Camera Focus',
-      '100% Encrypted Audio Recording & Transcribing Feed',
-      'Zero Structural Alteration to Heritage Wooden Architecture',
-    ],
-    installedEquipment: [
-      'Bosch DICENTIS Wireless Conference System with Touchscreen',
-      'Panasonic 4K PTZ Camera Network with Auto-Tracking',
-      'Extron DMP 128 Plus Audio Digital Signal Processor',
-    ],
-    galleryImages: [
-      'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=80',
-    ],
-    heroImage: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=80',
-    completionBadge: 'Classified High-Security Execution',
-  },
-  {
-    id: 'proj-4',
-    title: '50+ HD Smart Classroom Rollout for Premier Technical University',
-    clientName: 'Indian Institute of Technology (IIT) Campus',
-    clientType: 'Education',
-    location: 'Kharagpur, West Bengal',
-    year: '2024',
-    category: 'AV Integration & Education',
-    summary:
-      'Turnkey modernization of 50 university lecture halls with interactive 86-inch 4K touch displays, digital podiums, auto-tracking presenter cameras, and automated ceiling acoustic mic arrays.',
-    challenge:
-      'Rapid execution required within a 45-day summer semester break with standardized remote monitoring across all 50 rooms.',
-    solution:
-      'Implemented pre-built rack assemblies and standardized IP control code, allowing deployment of 1 to 2 rooms per day with centralized IT dashboard diagnostics.',
-    impactMetrics: [
-      '50 Lecture Halls Completed in 38 Days (Ahead of schedule)',
-      'Over 12,000 Students attending daily interactive digital lectures',
-      'Centralized Campus IT Remote Helpdesk Control',
-    ],
-    installedEquipment: [
-      'Samsung Flip / IF Series 86" Interactive 4K Touch Displays',
-      'Poly Studio E70 Auto-Tracking Smart Camera Systems',
-      'Sennheiser TeamConnect Ceiling 2 Beamforming Mics',
-      'Crestron AirMedia Wireless BYOD Presentation Gateways',
-    ],
-    galleryImages: [
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80',
-    ],
-    heroImage: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80',
-    completionBadge: 'Campus Wide Modernization Certificate',
-  },
-  {
-    id: 'proj-5',
-    title: 'Super-Specialty Hospital Digital OT & Telemedicine Integration',
-    clientName: 'Premier Multi-Specialty Healthcare Group',
-    clientType: 'Healthcare',
-    location: 'Kolkata, West Bengal',
-    year: '2023',
-    category: 'Healthcare AV',
-    summary:
-      'Integration of 8 modular Operation Theatres with zero-latency 4K uncompressed surgical routing, glass wall touch consoles, and live 4K stream feeds to the medical learning auditorium.',
-    challenge:
-      'Surgical environments demand strict sterile IP65 fluid-resistant hardware and absolute zero latency for real-time microscopic surgical guidance.',
-    solution:
-      'Deployed fiber-optic uncompressed AV-over-IP matrix switches paired with medical-grade IP65 flush wall monitors and DICOM-calibrated video processors.',
-    impactMetrics: [
-      'Zero Latency (< 1ms) 4K 60Hz Surgical Video Distribution',
-      '100% IP65 Washable Glass Surface Touch Controllers',
-      'Seamless Live Tele-Surgery Stream to 300-Seat Hospital Auditorium',
-    ],
-    installedEquipment: [
-      'Barco Nexxis Uncompressed 4K Surgical Video Matrix',
-      'Sony Healthcare 4K Medical Monitors & Video Recorders',
-      'Crestron Custom Sealed Medical Touch Control Interfaces',
-    ],
-    galleryImages: [
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80',
-    ],
-    heroImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80',
-    completionBadge: 'Medical Grade Certified Installation',
-  },
-  {
-    id: 'proj-6',
-    title: 'Global PSU Executive Boardroom & Town Hall AV Automation',
-    clientName: 'Central Public Sector Enterprise (PSU) HQ',
-    clientType: 'Corporate',
-    location: 'Kolkata / New Delhi',
-    year: '2024',
-    category: 'AV Integration & Automation',
-    summary:
-      'Executive boardroom featuring a 165-inch fine-pitch LED display, concealed motor elevators, ceiling beamforming microphones, and single-touch executive control panel.',
-    challenge:
-      'Demanded invisible architectural integration where microphones, displays, and cameras hide away when not in active use.',
-    solution:
-      'Engineered custom motorized architectural lifts and ceiling acoustic slots that automatically drop equipment into position upon pressing the "Start Board Meeting" touch preset.',
-    impactMetrics: [
-      'Single Touch Meeting Initialization (Reduces setup time from 15 mins to 10s)',
-      '165-Inch Seamless MicroLED Display without bezel breaks',
-      'Full Security Compliance with Enterprise Network Isolation',
-    ],
-    installedEquipment: [
-      'Samsung The Wall MicroLED 1.2mm Display System',
-      'Shure Microflex Complete Wireless Conference System',
-      'Crestron 3-Series Control Processor & 10" Touch Screen',
-      'Extron Quantum Ultra Video Processor',
-    ],
-    galleryImages: [
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80',
-    ],
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80',
-    completionBadge: 'Executive C-Suite Commendation',
-  },
-];
+    galleryImages: [],
+    reelUrl: reel.reelUrl,
+    status: 'Completed',
+    amcActive: true,
+    sector: 'Government & Public Sector',
+    completionBadge: 'Official EAIPL Project Execution',
+  };
+});
 
 export const ENGINEERING_STEPS: EngineeringStep[] = [
   {

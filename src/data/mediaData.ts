@@ -189,6 +189,10 @@ const RAW_FACEBOOK_REELS: ReelItem[] = [
 
 export const FACEBOOK_REELS: ReelItem[] = sortMediaByNewest(RAW_FACEBOOK_REELS);
 
+export const OFFICIAL_PROJECT_REELS: ReelItem[] = RAW_FACEBOOK_REELS.filter(
+  (reel) => reel.id === 'reel-03' || reel.id === 'reel-04'
+);
+
 const RAW_CORPORATE_EVENTS: EventItem[] = [
   {
     id: 'infocomm-asia-2026',

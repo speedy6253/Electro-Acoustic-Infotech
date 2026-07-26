@@ -17,6 +17,7 @@ import {
 import { PROJECT_CASE_STUDIES } from '../data/eaiplData';
 import { ProjectCaseStudy } from '../types';
 import { CompanyHeaderBrand } from './CompanyHeaderBrand';
+import { SocialVideoEmbed } from './SocialVideoEmbed';
 
 interface ProjectsPageProps {
   onOpenConsultation: (type?: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket') => void;
@@ -145,21 +146,40 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenConsultation }
               className="bg-white rounded-2xl border border-[#E2E8F0] overflow-hidden shadow-2xs hover:border-[#1570EF]/50 hover:shadow-md transition-all flex flex-col justify-between group"
             >
               <div>
-                <div className="h-48 overflow-hidden bg-[#F1F5F9] relative">
-                  <img
-                    src={proj.heroImage}
-                    alt={proj.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-xs border border-white/40 text-[11px] font-bold text-[#0F172A] shadow-xs flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-[#1570EF]" />
-                    <span>{proj.location}</span>
+                {proj.type === 'facebook-reel' || proj.mediaType === 'facebook-reel' || proj.reelUrl ? (
+                  <div className="p-3 bg-[#0F172A] flex flex-col items-center justify-center relative">
+                    <div className="w-full max-w-[320px]">
+                      <SocialVideoEmbed
+                        reelUrl={proj.reelUrl!}
+                        title={proj.title}
+                        aspectRatio="portrait"
+                      />
+                    </div>
+                    <div className="absolute top-5 right-5 px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-xs border border-white/40 text-[11px] font-bold text-[#0F172A] shadow-xs flex items-center gap-1 z-20">
+                      <MapPin className="w-3 h-3 text-[#1570EF]" />
+                      <span>{proj.location}</span>
+                    </div>
+                    <div className="absolute bottom-5 left-5 px-2.5 py-1 rounded-md bg-[#0F172A]/90 text-white text-[11px] font-semibold backdrop-blur-xs z-20 border border-white/20">
+                      {proj.clientType}
+                    </div>
                   </div>
+                ) : (
+                  <div className="h-48 overflow-hidden bg-[#F1F5F9] relative">
+                    <img
+                      src={proj.heroImage}
+                      alt={proj.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-xs border border-white/40 text-[11px] font-bold text-[#0F172A] shadow-xs flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-[#1570EF]" />
+                      <span>{proj.location}</span>
+                    </div>
 
-                  <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-[#0F172A]/80 text-white text-[11px] font-semibold backdrop-blur-xs">
-                    {proj.clientType}
+                    <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-md bg-[#0F172A]/80 text-white text-[11px] font-semibold backdrop-blur-xs">
+                      {proj.clientType}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-2 text-[11px] font-bold text-[#1570EF] uppercase tracking-wider">
@@ -189,9 +209,34 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenConsultation }
                   <span>Read Case Study</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </button>
+
+                {proj.reelUrl && (
+                  <a
+                    href={proj.reelUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2 px-3 rounded-lg bg-[#F1F5F9] hover:bg-[#E2E8F0] text-[#0F172A] text-xs font-bold transition-all flex items-center gap-1 shrink-0"
+                    title="Watch Official Project Video Reel on Facebook"
+                  >
+                    <span>Watch Reel</span>
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
+
+          {/* More Project Case Studies Coming Soon Card */}
+          <div className="bg-white rounded-2xl border border-dashed border-[#CBD5E1] p-8 flex flex-col items-center justify-center text-center space-y-3 min-h-[340px]">
+            <div className="w-12 h-12 rounded-full bg-[#EFF6FF] text-[#1570EF] flex items-center justify-center font-bold text-lg">
+              +
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-base font-bold text-[#0F172A]">More Project Case Studies Coming Soon</h3>
+              <p className="text-xs text-[#64748B] max-w-xs leading-relaxed">
+                Additional official turnkey engineering projects completed across India are currently being cataloged and published.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -221,13 +266,25 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onOpenConsultation }
                 <h2 className="text-2xl font-extrabold text-[#0F172A]">{selectedProject.title}</h2>
               </div>
 
-              <div className="rounded-xl overflow-hidden h-64 bg-[#F1F5F9]">
-                <img
-                  src={selectedProject.heroImage}
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              {selectedProject.type === 'facebook-reel' || selectedProject.mediaType === 'facebook-reel' || selectedProject.reelUrl ? (
+                <div className="rounded-xl overflow-hidden bg-[#0F172A] p-4 flex items-center justify-center border border-[#334155]">
+                  <div className="w-full max-w-[340px]">
+                    <SocialVideoEmbed
+                      reelUrl={selectedProject.reelUrl!}
+                      title={selectedProject.title}
+                      aspectRatio="portrait"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="rounded-xl overflow-hidden h-64 bg-[#F1F5F9]">
+                  <img
+                    src={selectedProject.heroImage}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
 
               <div className="space-y-4 text-xs text-[#334155] leading-relaxed">
                 <div>

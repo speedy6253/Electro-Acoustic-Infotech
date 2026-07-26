@@ -24,6 +24,8 @@ export type NavView =
   | 'industries'
   | 'projects'
   | 'media'
+  | 'quality'
+  | 'careers'
   | 'contact';
 
 interface HeaderProps {
@@ -49,12 +51,14 @@ export const Header: React.FC<HeaderProps> = ({
   const [activeDropdown, setActiveDropdown] = useState<'solutions' | 'industries' | null>(null);
 
   const navLinks: NavLinkItem[] = [
-    { label: 'Home', id: 'home', view: 'home', href: '#' },
-    { label: 'Solutions', id: 'solutions', view: 'solutions', href: '#solutions', hasDropdown: 'solutions' },
-    { label: 'Industries', id: 'industries', view: 'industries', href: '#industries', hasDropdown: 'industries' },
-    { label: 'Projects', id: 'projects', view: 'projects', href: '#projects' },
-    { label: 'Media', id: 'media', view: 'media', href: '#media' },
-    { label: 'Contact', id: 'contact', view: 'contact', href: '#contact' },
+    { label: 'Home', id: 'home', view: 'home', href: '/' },
+    { label: 'Solutions', id: 'solutions', view: 'solutions', href: '/solutions', hasDropdown: 'solutions' },
+    { label: 'Industries', id: 'industries', view: 'industries', href: '/industries', hasDropdown: 'industries' },
+    { label: 'Projects', id: 'projects', view: 'projects', href: '/projects' },
+    { label: 'Media', id: 'media', view: 'media', href: '/media' },
+    { label: 'Quality', id: 'quality', view: 'quality', href: '/quality' },
+    { label: 'Careers', id: 'careers', view: 'careers', href: '/careers' },
+    { label: 'Contact', id: 'contact', view: 'contact', href: '/contact' },
   ];
 
   const handleNavClick = (view: NavView, param?: string) => {

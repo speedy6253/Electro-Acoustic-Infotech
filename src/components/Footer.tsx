@@ -84,6 +84,22 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onNavigate }
               </li>
               <li>
                 <button
+                  onClick={() => handleNav('quality')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Quality & Standards
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('careers')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Careers
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => handleNav('contact')}
                   className="hover:text-[#1570EF] transition-colors text-left"
                 >

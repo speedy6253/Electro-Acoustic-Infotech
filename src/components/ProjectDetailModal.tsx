@@ -12,6 +12,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { ProjectCaseStudy } from '../types';
+import { SocialVideoEmbed } from './SocialVideoEmbed';
 
 interface ProjectDetailModalProps {
   project: ProjectCaseStudy | null;
@@ -36,59 +37,115 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           transition={{ duration: 0.2 }}
           className="relative w-full max-w-4xl bg-white rounded-xl shadow-xl border border-[#D7E8F3] overflow-hidden my-8"
         >
-          {/* Header Image Frame */}
-          <div className="relative h-64 sm:h-80 w-full bg-[#0F172A] overflow-hidden">
-            <img
-              src={project.heroImage}
-              alt={project.title}
-              className="w-full h-full object-cover opacity-85"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/60 to-transparent" />
+          {/* Header Media Frame */}
+          {project.type === 'facebook-reel' || project.mediaType === 'facebook-reel' || project.reelUrl ? (
+            <div className="relative bg-[#0F172A] p-6 sm:p-8 flex flex-col items-center justify-center border-b border-[#334155]">
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white backdrop-blur-md transition-colors z-30 border border-white/20"
+                aria-label="Close case study modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md transition-colors z-10 border border-white/20"
-              aria-label="Close case study modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1570EF] text-white shadow-2xs">
-                  {project.category}
-                </span>
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/20">
-                  {project.clientType}
-                </span>
-                {project.completionBadge && (
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white flex items-center gap-1 shadow-2xs">
-                    <CheckCircle2 className="w-3 h-3" />
-                    {project.completionBadge}
-                  </span>
-                )}
+              <div className="w-full max-w-[360px] my-2">
+                <SocialVideoEmbed
+                  reelUrl={project.reelUrl!}
+                  title={project.title}
+                  aspectRatio="portrait"
+                />
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">
-                {project.title}
-              </h2>
+              <div className="w-full mt-4 text-white text-left">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1570EF] text-white shadow-2xs">
+                    {project.category}
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/20">
+                    {project.clientType}
+                  </span>
+                  {project.completionBadge && (
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white flex items-center gap-1 shadow-2xs">
+                      <CheckCircle2 className="w-3 h-3" />
+                      {project.completionBadge}
+                    </span>
+                  )}
+                </div>
 
-              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-200">
-                <div className="flex items-center gap-1.5">
-                  <Building2 className="w-4 h-4 text-[#2E90FA]" />
-                  <span>{project.clientName}</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#2E90FA]" />
-                  <span>{project.location}</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-[#2E90FA]" />
-                  <span>Executed in {project.year}</span>
+                <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2">
+                  {project.title}
+                </h2>
+
+                <div className="flex flex-wrap items-center gap-4 text-xs text-slate-200">
+                  <div className="flex items-center gap-1.5">
+                    <Building2 className="w-4 h-4 text-[#2E90FA]" />
+                    <span>{project.clientName}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#2E90FA]" />
+                    <span>{project.location}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar className="w-4 h-4 text-[#2E90FA]" />
+                    <span>Executed in {project.year}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="relative h-64 sm:h-80 w-full bg-[#0F172A] overflow-hidden">
+              <img
+                src={project.heroImage!}
+                alt={project.title}
+                className="w-full h-full object-cover opacity-85"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/60 to-transparent" />
+
+              <button
+                onClick={onClose}
+                className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md transition-colors z-10 border border-white/20"
+                aria-label="Close case study modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1570EF] text-white shadow-2xs">
+                    {project.category}
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/20">
+                    {project.clientType}
+                  </span>
+                  {project.completionBadge && (
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white flex items-center gap-1 shadow-2xs">
+                      <CheckCircle2 className="w-3 h-3" />
+                      {project.completionBadge}
+                    </span>
+                  )}
+                </div>
+
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white mb-2">
+                  {project.title}
+                </h2>
+
+                <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-200">
+                  <div className="flex items-center gap-1.5">
+                    <Building2 className="w-4 h-4 text-[#2E90FA]" />
+                    <span>{project.clientName}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#2E90FA]" />
+                    <span>{project.location}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Calendar className="w-4 h-4 text-[#2E90FA]" />
+                    <span>Executed in {project.year}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Body Details */}
           <div className="p-6 sm:p-8 max-h-[60vh] overflow-y-auto space-y-6 bg-white">

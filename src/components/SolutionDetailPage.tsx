@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { SOLUTIONS, PROJECT_CASE_STUDIES } from '../data/eaiplData';
 import { CompanyHeaderBrand } from './CompanyHeaderBrand';
+import { SocialVideoEmbed } from './SocialVideoEmbed';
 
 interface SolutionDetailPageProps {
   slug: string;
@@ -132,7 +133,7 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({
 
           <div className="lg:col-span-5 rounded-xl overflow-hidden border border-[#CBD5E1] shadow-2xs bg-[#F1F5F9]">
             <img
-              src={solution.heroImage || 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80'}
+              src={solution.heroImage || '/assets/hero/homepage-hero.jpg'}
               alt={solution.title}
               className="w-full h-64 sm:h-80 object-cover"
             />
@@ -196,13 +197,25 @@ export const SolutionDetailPage: React.FC<SolutionDetailPageProps> = ({
                 key={proj.id}
                 className="bg-[#F8FAFC] rounded-xl border border-[#E2E8F0] overflow-hidden flex flex-col justify-between hover:border-[#1570EF]/40 transition-all"
               >
-                <div className="h-40 overflow-hidden bg-[#E2E8F0]">
-                  <img
-                    src={proj.heroImage}
-                    alt={proj.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                {proj.type === 'facebook-reel' || proj.mediaType === 'facebook-reel' || proj.reelUrl ? (
+                  <div className="p-3 bg-[#0F172A] flex justify-center">
+                    <div className="w-full max-w-[300px]">
+                      <SocialVideoEmbed
+                        reelUrl={proj.reelUrl!}
+                        title={proj.title}
+                        aspectRatio="portrait"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="h-40 overflow-hidden bg-[#E2E8F0]">
+                    <img
+                      src={proj.heroImage}
+                      alt={proj.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className="p-5 space-y-2 flex-1">
                   <div className="flex items-center justify-between text-[11px] text-[#64748B] font-semibold">
                     <span>{proj.clientType}</span>

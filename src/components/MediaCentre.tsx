@@ -128,7 +128,7 @@ const CorporateEventCard: React.FC<CorporateEventCardProps> = ({ event, onOpenGa
             transition={{ duration: 0.35 }}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             onError={(e) => {
-              (e.target as HTMLImageElement).src = event.coverImage || 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80';
+              (e.target as HTMLImageElement).src = event.coverImage || '/assets/hero/homepage-hero.jpg';
             }}
           />
         </AnimatePresence>
@@ -788,7 +788,7 @@ export const MediaCentre: React.FC<MediaCentreProps> = ({ onOpenConsultation }) 
                   alt={`${selectedEvent.title} - Photo ${eventGalleryIndex + 1}`}
                   className="max-h-[60vh] w-auto max-w-full object-contain transition-all duration-300"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80';
+                    (e.target as HTMLImageElement).src = '/assets/hero/homepage-hero.jpg';
                   }}
                 />
 
@@ -840,7 +840,7 @@ export const MediaCentre: React.FC<MediaCentreProps> = ({ onOpenConsultation }) 
                       alt={`Thumb ${idx + 1}`}
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=300&q=80';
+                        (e.target as HTMLImageElement).src = '/assets/hero/homepage-hero.jpg';
                       }}
                     />
                     <span className="absolute bottom-0.5 right-1 text-[9px] font-mono font-bold text-white bg-black/60 px-1 rounded">

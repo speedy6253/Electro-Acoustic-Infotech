@@ -57,7 +57,10 @@ export interface ProjectCaseStudy {
   impactMetrics: string[];
   installedEquipment: string[];
   galleryImages: string[];
-  heroImage: string;
+  heroImage?: string;
+  reelUrl?: string;
+  type?: 'facebook-reel' | 'standard-project';
+  mediaType?: 'facebook-reel' | 'image' | 'video';
   acousticsSpecs?: string;
   completionBadge?: string;
   keyHighlights?: string[];
@@ -115,9 +118,15 @@ export interface ConsultationFormData {
   organization: string;
   email: string;
   phone: string;
-  projectType: string;
-  estimatedBudget: string;
-  timeline: string;
-  requirements: string;
+  projectType?: string;
+  estimatedBudget?: string;
+  timeline?: string;
+  requirements?: string;
+  clientType?: string;
+  serviceCategory?: string;
+  projectBudget?: string;
+  projectTimeline?: string;
+  location?: string;
+  projectDetails?: string;
   requestType: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket';
 }

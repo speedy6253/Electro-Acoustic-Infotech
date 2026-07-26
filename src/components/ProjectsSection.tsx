@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { PROJECTS } from '../data/eaiplData';
 import { ProjectCaseStudy } from '../types';
+import { SocialVideoEmbed } from './SocialVideoEmbed';
 
 interface ProjectsSectionProps {
   onSelectProject: (project: ProjectCaseStudy) => void;
@@ -65,7 +66,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           ))}
         </div>
 
-        {/* Simplified Projects Grid */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence>
             {filteredProjects.map((project) => (
@@ -79,20 +80,37 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 className="bg-[#F8FAFC] rounded-xl border border-[#E2E8F0] overflow-hidden hover:border-[#1570EF]/40 hover:shadow-md transition-all flex flex-col justify-between group"
               >
                 <div>
-                  {/* Project Image */}
-                  <div className="relative aspect-16/10 bg-[#0F172A] overflow-hidden">
-                    <img
-                      src={project.heroImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#0F172A] shadow-2xs">
-                        {project.category}
-                      </span>
+                  {/* Media Frame: Facebook Reel Embed or Image */}
+                  {project.type === 'facebook-reel' || project.mediaType === 'facebook-reel' || project.reelUrl ? (
+                    <div className="p-3 bg-[#0F172A] flex flex-col items-center justify-center relative">
+                      <div className="w-full max-w-[320px]">
+                        <SocialVideoEmbed
+                          reelUrl={project.reelUrl!}
+                          title={project.title}
+                          aspectRatio="portrait"
+                        />
+                      </div>
+                      <div className="absolute top-5 left-5 z-20 pointer-events-none">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#0F172A] shadow-2xs">
+                          {project.category}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="relative aspect-16/10 bg-[#0F172A] overflow-hidden">
+                      <img
+                        src={project.heroImage}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-white/90 text-[#0F172A] shadow-2xs">
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Content: Title & Location */}
                   <div className="p-5 space-y-2">
@@ -112,13 +130,26 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                     onClick={() => onSelectProject(project)}
                     className="w-full py-2 px-3 rounded-lg bg-white hover:bg-[#1570EF] hover:text-white border border-[#CBD5E1] hover:border-[#1570EF] text-xs font-bold text-[#0F172A] transition-all flex items-center justify-center gap-2 shadow-2xs"
                   >
-                    <span>View Details</span>
+                    <span>View Project Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
+
+          {/* More Project Case Studies Coming Soon Banner Card */}
+          <div className="bg-[#F8FAFC] rounded-xl border border-dashed border-[#CBD5E1] p-6 flex flex-col items-center justify-center text-center space-y-3 min-h-[260px]">
+            <div className="w-10 h-10 rounded-full bg-[#EFF6FF] text-[#1570EF] flex items-center justify-center font-bold">
+              +
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-sm font-bold text-[#0F172A]">More Project Case Studies Coming Soon</h3>
+              <p className="text-xs text-[#64748B] max-w-xs leading-relaxed">
+                Additional official turnkey engineering projects completed across India are being published.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

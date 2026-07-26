@@ -14,6 +14,7 @@ import {
   Tv
 } from 'lucide-react';
 import { ReelItem, FACEBOOK_REELS } from '../data/mediaData';
+import { getFacebookEmbedUrl } from './SocialVideoEmbed';
 
 interface ReelsShowcaseProps {
   reels?: ReelItem[];
@@ -59,22 +60,9 @@ export const ReelsShowcase: React.FC<ReelsShowcaseProps> = ({ reels = FACEBOOK_R
     handleManualNav((currentIndex - 1 + reels.length) % reels.length);
   };
 
-  // Generate embed URL based on platform/URL pattern
+  // Generate embed URL using shared getFacebookEmbedUrl utility
   const getEmbedUrl = (reel: ReelItem) => {
-    const url = reel.reelUrl;
-    if (reel.platform === 'youtube' || url.includes('youtube.com') || url.includes('youtu.be')) {
-      const match = url.match(/(?:shorts\/|v=|\/)([\w-]{11})/);
-      const id = match ? match[1] : '';
-      return `https://www.youtube.com/embed/${id}?autoplay=1&mute=0&rel=0`;
-    }
-    
-    if (reel.platform === 'instagram' || url.includes('instagram.com')) {
-      const cleanUrl = url.split('?')[0].replace(/\/$/, '');
-      return `${cleanUrl}/embed`;
-    }
-
-    // Default to Facebook embed plugin format
-    return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=380&autoplay=true`;
+    return getFacebookEmbedUrl(reel.reelUrl, { autoplay: true });
   };
 
   if (!reels || reels.length === 0) return null;
