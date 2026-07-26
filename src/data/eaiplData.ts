@@ -10,285 +10,608 @@ import {
 } from '../types';
 
 export const COMPANY_INFO = {
-  name: 'Electro Acoustic Infotech Pvt. Ltd.',
+  name: 'ELECTRO ACOUSTIC INFOTECH PRIVATE LIMITED',
   shortName: 'EAIPL',
   tagline: 'Enterprise Electro-Acoustic, Audio Visual & Turnkey Systems Integration',
-  foundedYear: '1998',
-  experienceYears: '25+',
-  projectsCount: '1,500+',
-  oemPartnersCount: '50+',
-  hqLocation: 'Kolkata, West Bengal, India',
-  isoCertification: 'ISO 9001:2015 Certified',
+  hqLocation: '83/6, Ballygunge Place, Ballygunge, Kolkata, West Bengal 700019',
+  registeredOffice: '83/6, Ballygunge Place, Ballygunge, Kolkata, West Bengal - 700019',
+  isoCertification: 'ISO 9001:2015 Certified Quality Management',
   govRegistration: 'Class-I Registered Turnkey Vendor & EPC Contractor',
   officialWebsite: 'https://eaipl.co.in',
   facebookPage: 'https://www.facebook.com/EAIPLINDIA',
   contactEmail: 'info@eaipl.co.in',
-  supportEmail: 'support@eaipl.co.in',
-  phone: '+91 33 2289 1234',
-  tollFree: '1800 123 3247 (EAIPL)',
-  emergencyHotline: '+91 98300 00000',
+  supportEmail: 'info@eaipl.co.in',
+  phone: '+91 70445 50001',
+  businessHours: 'Monday – Saturday: 10:00 AM – 6:30 PM',
+  mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.27138765432!2d88.3685!3d22.5285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0276d41a000001%3A0x123456789abcdef!2s83%2F6%2C%20Ballygunge%20Place%2C%20Ballygunge%2C%20Kolkata%2C%20West%20Bengal%20700019!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
 };
 
 export const METRICS: MetricItem[] = [
   {
-    id: 'exp',
-    label: 'Years of Engineering Excellence',
-    value: '25+',
-    subtext: 'Pioneering Electro-Acoustic & AV System Integration in India since 1998',
-    iconName: 'Award',
-  },
-  {
-    id: 'projects',
-    label: 'Turnkey Projects Executed',
-    value: '1,500+',
-    subtext: 'Across Govt, PSUs, Defense, Education, Healthcare & Corporate Sectors',
-    iconName: 'CheckCircle2',
-  },
-  {
-    id: 'oem',
-    label: 'Global OEM Authorizations',
-    value: '50+',
-    subtext: 'Direct partnership with world-leading AV, Audio & Security Manufacturers',
-    iconName: 'Layers',
+    id: 'class1',
+    label: 'Turnkey Execution Capability',
+    value: 'Class-I Vendor',
+    subtext: 'Class-I Registered Turnkey Vendor & EPC Contractor for Govt & Enterprise',
+    iconName: '/assets/icons/trust/engineering.png',
   },
   {
     id: 'iso',
-    label: 'Quality & Governance',
+    label: 'Quality Standard',
     value: 'ISO 9001:2015',
-    subtext: 'Certified Engineering Workflows, System Design & AMC Support Standards',
-    iconName: 'ShieldCheck',
+    subtext: 'Certified System Design, Acoustic Simulation, On-site Testing & AMC SLAs',
+    iconName: '/assets/icons/trust/quality.png',
+  },
+  {
+    id: 'oem',
+    label: 'Authorized Integration',
+    value: 'Direct OEM Partner',
+    subtext: 'Authorized System Integrator for global pro-audio, AV & control manufacturers',
+    iconName: '/assets/icons/trust/technology.png',
+  },
+  {
+    id: 'lifecycle',
+    label: 'End-to-End Delivery',
+    value: 'EPC Engineering',
+    subtext: 'Complete lifecycle from acoustic discovery and CAD design to testing and AMC',
+    iconName: '/assets/icons/trust/support.png',
   },
 ];
 
 export const SOLUTIONS: SolutionCategory[] = [
   {
     id: 'pro-audio',
+    slug: 'professional-audio',
     title: 'Professional Audio & Electro-Acoustics',
     tagline: 'High-intelligibility sound reinforcement for critical acoustic spaces',
-    icon: 'Volume2',
+    icon: '/assets/icons/solutions/professional-audio.png',
     description:
       'Precision-engineered acoustic sound systems incorporating DSP beam-steering line arrays, boundary microphones, digital matrix mixers, and acoustic echo cancellation (AEC) tailored for auditoriums, council chambers, and high-noise environments.',
+    heroImage: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Legislative Assembly & Parliament Chambers',
+      'High-Capacity Civic & Cultural Auditoriums',
+      'Corporate Town Halls & Convention Centers',
+      'Airport Terminals & Rail Transit Hubs'
+    ],
     keyFeatures: [
-      'Acoustic Ray-Tracing & Simulation Modeling',
-      'Beam-Steering Line Array Speaker Deployment',
-      'Digital Signal Processing (DSP) & Automated Feedback Suppression',
-      'Delegate Conference Systems with Simultaneous Interpretation',
-      'High-Intelligibility Speech Amplification (STI > 0.65)',
+      'Acoustic Ray-Tracing & EASE Simulation Modeling',
+      'Beam-Steering Active Line Array Speaker Deployment',
+      'Digital Signal Processing (DSP) & Automatic Feedback Suppression',
+      'Delegate Discussion Consoles with Simultaneous Interpretation',
+      'High-Intelligibility Speech Amplification (STI > 0.65)'
     ],
     equipmentBrands: ['Bose Professional', 'JBL Professional', 'Biamp', 'Shure', 'Sennheiser', 'Crown'],
     sampleDeliverables: [
       'Acoustic Map & EASE Simulation Reports',
       'Rack Wiring Schematics & Cable Schedules',
-      'DSP File Configurations & Equalization Curves',
+      'DSP File Configurations & Equalization Curves'
     ],
     badge: 'Core Expertise',
+    relatedIndustries: ['Government & Public Sector', 'Auditoriums & Performing Arts', 'Corporate & Enterprises'],
+    faq: [
+      {
+        question: 'What speech intelligibility (STI) level can EAIPL guarantee?',
+        answer: 'With our electro-acoustic modeling and EASE simulations, we engineer systems to consistently achieve an STI rating > 0.65 even in challenging acoustic enclosures.'
+      },
+      {
+        question: 'Do you provide Dante / AES67 network audio routing?',
+        answer: 'Yes, all our professional audio designs utilize redundant Dante and AES67 IP audio networking for uncompressed, ultra-low latency signal distribution.'
+      }
+    ],
+    cta: 'Schedule an On-Site Acoustic & Audio Survey'
   },
   {
     id: 'av-integration',
+    slug: 'audio-visual',
     title: 'Audio Visual System Integration',
     tagline: 'Seamless ultra-high-definition visual distribution & interactive displays',
-    icon: 'Tv',
+    icon: '/assets/icons/solutions/audio-visual.png',
     description:
       'End-to-end video distribution, fine-pitch indoor/outdoor LED video walls, laser projection systems, interactive flat panels, and AV-over-IP matrix networks designed for corporate boardrooms, command centers, and university lecture halls.',
+    heroImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Executive C-Suite Boardrooms & Conference Rooms',
+      'University Lecture Theatres & Smart Classrooms',
+      'Experience Centers & Executive Briefing Rooms',
+      'Multipurpose Event Halls & Hybrid Workspaces'
+    ],
     keyFeatures: [
       'Direct-View MicroLED & Fine-Pitch Video Walls (0.9mm - 1.5mm)',
       'High-Lumen Laser Projection & Motorized Tension Screens',
       '4K 60Hz 4:4:4 AV-over-IP Network Switching',
       'Multi-source Video Processors & Windowing Systems',
-      'Wireless Content Sharing & Bring-Your-Own-Device (BYOD) Hubs',
+      'Wireless Content Sharing & Bring-Your-Own-Device (BYOD) Hubs'
     ],
     equipmentBrands: ['Crestron', 'Extron', 'Christie', 'Samsung', 'Panasonic', 'LG Enterprise'],
     sampleDeliverables: [
       'Visual Coverage Diagrams & Viewing Distance Calculations',
       'Video Matrix Switching Topology Map',
-      'Control Panel UI Mockups & Source Routing Charts',
+      'Control Panel UI Mockups & Source Routing Charts'
     ],
     badge: 'High Demand',
+    relatedIndustries: ['Corporate & Enterprises', 'Education & Research', 'Government & Public Sector'],
+    faq: [
+      {
+        question: 'What is the advantage of AV-over-IP compared to legacy HDMI switchers?',
+        answer: 'AV-over-IP provides infinite scalability over standard 10GbE network infrastructure, allowing any input source to route to any output screen anywhere on the campus.'
+      }
+    ],
+    cta: 'Request an AV System Integration Proposal'
+  },
+  {
+    id: 'video-wall',
+    slug: 'video-wall',
+    title: 'Video Wall & Fine-Pitch LED Displays',
+    tagline: 'High-density direct-view MicroLED and seamless LCD matrix displays',
+    icon: '/assets/icons/solutions/video-wall.png',
+    description:
+      'Turnkey video wall solutions featuring ultra-narrow bezel LCD matrix systems and pixel pitches down to 0.7mm for 24/7 mission-critical monitoring, public info displays, and luxury lobby video walls.',
+    heroImage: 'https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1542744094-3a31b272c490?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Command & Control Operation Centers (NOC/SOC)',
+      'Corporate Headquarters Reception Lobbies',
+      'Smart City Surveillance Centers',
+      'Broadcasting Studios & Newsroom Walls'
+    ],
+    keyFeatures: [
+      'Ultra-Fine Pixel Pitch COB & GOB LED Modules (0.7mm - 1.2mm)',
+      '24/7 Continuous Mission-Critical Reliability',
+      'Hardware Video Processors with Multi-Window PiP Layouts',
+      'Color Calibration & Uniformity Correction Systems',
+      'Redundant Power Supplies & Signal Controller Failover'
+    ],
+    equipmentBrands: ['Barco', 'Christie Digital', 'Planar', 'Unilumin', 'Absen', 'Samsung Wall'],
+    sampleDeliverables: [
+      'Video Wall Structural Weight Loading CAD Plan',
+      'Heat Dissipation & Power Consumption Analysis',
+      'Multi-Window Processor Configuration Map'
+    ],
+    badge: 'Mission-Critical',
+    relatedIndustries: ['Government & Public Sector', 'Smart Cities & Defense', 'Corporate & Enterprises'],
+    faq: [
+      {
+        question: 'What pixel pitch is best for a control room versus a lobby display?',
+        answer: 'Control rooms typically require 0.9mm to 1.2mm pixel pitch due to close operator viewing distances (2-4 meters), while corporate lobbies suit 1.5mm to 1.8mm displays.'
+      }
+    ],
+    cta: 'Consult with Our Video Wall Specialists'
+  },
+  {
+    id: 'conference-system',
+    slug: 'conference-system',
+    title: 'Digital Conference & Delegate Systems',
+    tagline: 'Encrypted discussion consoles, voting systems, and simultaneous interpretation',
+    icon: '/assets/icons/solutions/conference-system.png',
+    description:
+      'Advanced delegate voting and speech systems designed for parliamentary chambers, municipal corporations, and international summit halls. Features delegate unit tracking, automatic camera pan-tilt-zoom positioning, and ISO 20109 interpretation booths.',
+    heroImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'State Legislative Assemblies & Parliament Houses',
+      'Municipal Corporation Meeting Halls',
+      'International Convention Halls & UN-Style Chambers',
+      'Judicial Courtrooms & Hearing Rooms'
+    ],
+    keyFeatures: [
+      'Flush-Mount & Tabletop Touchscreen Delegate Units',
+      'Electronic Parliamentary Voting & Biometric Attendance',
+      'ISO 20109 Compliant Simultaneous Interpretation Channels',
+      'PTZ Camera Auto-Tracking Linked to Microphone Activation',
+      'Encrypted Audio Transmission for Sensitive Sessions'
+    ],
+    equipmentBrands: ['Bosch Dicentis', 'Taiden', 'Shure Microflex Complete', 'Televic Conference'],
+    sampleDeliverables: [
+      'Delegate Desk Furniture Integration Drawings',
+      'Camera Auto-Preset Coordinate Matrix',
+      'Voting System Protocol Test Reports'
+    ],
+    badge: 'Government Ready',
+    relatedIndustries: ['Government & Public Sector', 'Judiciary & Law Enforcement'],
+    faq: [
+      {
+        question: 'Can the delegate units integrate with existing desk furniture?',
+        answer: 'Yes, we specialize in custom flush-mounting delegate consoles into wooden, stone, or metallic parliamentary desks.'
+      }
+    ],
+    cta: 'Request a Live Conference System Demo'
+  },
+  {
+    id: 'cctv-surveillance',
+    slug: 'cctv-surveillance',
+    title: 'IP CCTV & Video Surveillance Systems',
+    tagline: 'High-definition IP cameras, AI analytics, and thermal perimeter defense',
+    icon: '/assets/icons/solutions/cctv.png',
+    description:
+      'Enterprise surveillance architecture with AI-driven analytics including ANPR, facial recognition, crowd management, object left behind, and perimeter thermal sensing connected to centralized VMS software.',
+    heroImage: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Smart City Infrastructure & Traffic Intersection Monitoring',
+      'Industrial Manufacturing Plants & Energy Grids',
+      'High-Security Government Buildings & Defense Depots',
+      'Airports, Railway Terminals, and Metro Networks'
+    ],
+    keyFeatures: [
+      'AI Edge Analytics: ANPR, Facial Recognition, Heatmapping',
+      'Long-Range Thermal Cameras & PTZ Dome Optics',
+      'Centralized Video Management Software (VMS) with Failover Cluster',
+      'RAID Storage Arrays with 30 to 90 Days Retention',
+      'Cybersecurity Hardened IP Camera Network Fabrics'
+    ],
+    equipmentBrands: ['Bosch Security', 'Axis Communications', 'Hikvision Commercial', 'Dahua Enterprise', 'Honeywell'],
+    sampleDeliverables: [
+      'Camera Lens FOV & Storage Bandwidth Calculations',
+      'Network Fiber Optic Ring Topology Diagrams',
+      'SLA Maintenance & Uptime Compliance Metrics'
+    ],
+    badge: 'Security Certified',
+    relatedIndustries: ['Government & Public Sector', 'Industrial & Manufacturing', 'Transport & Infrastructure'],
+    faq: [
+      {
+        question: 'How do you calculate storage requirements for 4K cameras?',
+        answer: 'We utilize H.265+ compression algorithms and dedicated storage calculators factoring frame rate, bitrate, and retention days to size SAN/NAS arrays.'
+      }
+    ],
+    cta: 'Get an Enterprise Security Audit'
+  },
+  {
+    id: 'access-control',
+    slug: 'access-control',
+    title: 'Biometric Access Control & Gate Automation',
+    tagline: 'Multi-factor authentication, visitor management, and physical barrier integration',
+    icon: '/assets/icons/solutions/access-control.png',
+    description:
+      'Comprehensive physical security solutions featuring touchless face recognition, RFID/NFC mobile credentials, automated turnstiles, flap barriers, and hydraulic bollards integrated with HR management systems.',
+    heroImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Corporate Campuses & IT Parks',
+      'High-Security Data Centers & Server Rooms',
+      'Government Secretariats & R&D Labs',
+      'Industrial Factories & Warehouses'
+    ],
+    keyFeatures: [
+      'Touchless Facial Recognition & Palm Vein Scanners',
+      'High-Speed Optical Turnstiles & Motorized Flap Barriers',
+      'Visitor Kiosks with QR Pass Generation',
+      'Anti-Passback & Muster Station Reporting',
+      'Integration with ERP / Active Directory Credentials'
+    ],
+    equipmentBrands: ['HID Global', 'Suprema', 'Honeywell Access', 'Bosch Security', 'Magnet Control'],
+    sampleDeliverables: [
+      'Door Access Control Cable Schedule & Lock Wiring Diagrams',
+      'Pedestrian Gate Layout CAD Blueprints',
+      'Access Control Matrix & Permission Hierarchy'
+    ],
+    badge: 'Enterprise Security',
+    relatedIndustries: ['Corporate & Enterprises', 'Industrial & Manufacturing', 'Government & Public Sector'],
+    faq: [
+      {
+        question: 'Can the access control system work during power outages?',
+        answer: 'Yes, all door controllers and turnstiles feature battery backup power modules and fail-safe or fail-secure fire alarm integration.'
+      }
+    ],
+    cta: 'Design Your Gate & Barrier System'
+  },
+  {
+    id: 'fire-alarm',
+    slug: 'fire-alarm',
+    title: 'Fire Alarm & Life Safety Systems',
+    tagline: 'Addressable fire detection, gas suppression, and EN54 voice evacuation',
+    icon: '/assets/icons/solutions/fire-alarm.png',
+    description:
+      'Turnkey fire detection and alarm solutions comprising intelligent addressable smoke/heat detectors, aspirating smoke detection (VESDA), clean agent gas suppression, and integrated public address life safety evacuation.',
+    heroImage: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Commercial High-Rise Buildings & Shopping Malls',
+      'Data Centers & Mission Critical Rooms',
+      'Hospitals & Healthcare Facilities',
+      'Educational Campuses & Libraries'
+    ],
+    keyFeatures: [
+      'Microprocessor-based Addressable Fire Alarm Control Panels',
+      'Aspirating Early Warning Smoke Detection (VESDA) for Server Rooms',
+      'FM-200 / Novec 1230 Gas Suppression System Integration',
+      'EN54-16 Certified Voice Evacuation & Emergency Paging',
+      'Graphic Annunciator Software for Floor-by-Floor Alarm Map'
+    ],
+    equipmentBrands: ['Honeywell Notifier', 'Bosch Fire', 'Siemens Building Tech', 'Morley-IAS'],
+    sampleDeliverables: [
+      'Fire Detector Coverage CAD Layout Drawings',
+      'Loop Resistance & Battery Calculation Reports',
+      'Fire Department Approval Compliance Documents'
+    ],
+    badge: 'Life Safety Certified',
+    relatedIndustries: ['Healthcare & Medical', 'Industrial & Manufacturing', 'Corporate & Enterprises'],
+    faq: [
+      {
+        question: 'Is the fire alarm system compliant with NBC (National Building Code)?',
+        answer: 'Yes, all our fire detection systems adhere to NBC India 2016 and NFPA 72 standards.'
+      }
+    ],
+    cta: 'Schedule a Life Safety Compliance Survey'
   },
   {
     id: 'stage-lighting',
+    slug: 'stage-lighting',
     title: 'Stage Equipment & Architectural Lighting',
     tagline: 'Dynamic stage mechanics, motorized rigging, and intelligent DMX/RDM lighting',
-    icon: 'Sparkles',
+    icon: '/assets/icons/solutions/lighting.png',
     description:
       'Turnkey stage solutions encompassing motorized curtain tracks, counterweight rigging, DMX512/RDM intelligent moving heads, LED theatrical profiles, followspots, and computerized light control consoles for state auditoriums and cultural centers.',
+    heroImage: 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Cultural Centers & Town Auditoriums',
+      'University & School Performing Arts Centers',
+      'Television Broadcasting Studios',
+      'Heritage Building Architectural Facades'
+    ],
     keyFeatures: [
       'Motorized & Manual Stage Rigging & Flying Systems',
       'Acoustic Shells & Sound Reflective Shell Panels',
       'DMX512-A / Art-Net Architectural & Stage Lighting Control',
       'Energy-Efficient High-CRI LED Theatrical Spotlights',
-      'Cyclorama & Stage Velvet Drapery Systems',
+      'Cyclorama & Stage Velvet Drapery Systems'
     ],
     equipmentBrands: ['Lutron', 'ETC (Electronic Theatre Controls)', 'Chauvet Professional', 'Martin', 'Robe'],
     sampleDeliverables: [
       'Stage Lighting Grid CAD Layouts',
       'Power Loading & Dimmer Rack Calculations',
-      'DMX Patch Sheets & Scene Preset Programming',
+      'DMX Patch Sheets & Scene Preset Programming'
     ],
+    badge: 'Turnkey Rigging',
+    relatedIndustries: ['Auditoriums & Performing Arts', 'Education & Research'],
+    faq: [
+      {
+        question: 'Do you provide acoustic stage shells for orchestral performances?',
+        answer: 'Yes, we supply and install modular sound reflective acoustic shells designed to project acoustic energy into the audience.'
+      }
+    ],
+    cta: 'Consult with Our Stage Engineers'
   },
   {
-    id: 'acoustics-engineering',
-    title: 'Room Acoustics & Noise Control',
-    tagline: 'Scientific reverberation control, soundproofing, and noise isolation',
-    icon: 'Waves',
+    id: 'building-automation',
+    slug: 'building-automation',
+    title: 'Building Automation & Smart Control',
+    tagline: 'Integrated BMS, smart lighting, HVAC automation, and energy monitoring',
+    icon: '/assets/icons/solutions/automation.png',
     description:
-      'Comprehensive architectural acoustics design, RT60 reverberation time optimization, sound isolation wall assemblies, bass traps, stretch-fabric acoustic wall paneling, and floating floor systems to guarantee pristine acoustic response.',
+      'Custom-programmed automation processors pairing custom graphic user interfaces (GUIs) on tabletop or wall-mounted touch panels to streamline complex multi-device operations into intuitive single-touch preset buttons.',
+    heroImage: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Commercial High-Rise Offices & IT Parks',
+      'Luxury Hotels & Resorts',
+      'Smart City Administrative Towers',
+      'Convention Centers & Exhibition Halls'
+    ],
     keyFeatures: [
-      'In-situ RT60 & Sound Transmission Class (STC) Measurements',
-      'Perforated Wooden & Fabric-Wrapped Absorptive Paneling',
-      'Custom Diffuser Arrays & Bass Trap Engineering',
-      'HVAC Noise Attenuation & Duct Silencer Integration',
-      'Vibration Isolation for Heavy Machinery & Mechanical Rooms',
+      'BACnet / KNX / Modbus Protocol BMS Integration',
+      'Smart Lighting Control with DALI Dimming & Daylighting',
+      'HVAC Chiller Plant Optimization & IAQ Sensors',
+      'Energy Metering & Carbon Footprint Dashboards',
+      'Custom Mobile App & Touch Panel Operating Software'
     ],
-    equipmentBrands: ['Armstrong Acoustics', 'Saint-Gobain', 'Anutone', 'Vicoustic', 'Custom Fabrication'],
+    equipmentBrands: ['Crestron Electronics', 'Extron Electronics', 'Schneider Electric', 'Honeywell BMS', 'Lutron'],
     sampleDeliverables: [
-      'Pre & Post Installation RT60 Acoustic Analysis',
-      '3D Acoustic Reflection Simulations',
-      'Material Technical Compliance Certificates',
+      'BMS Points Schedule & Control Logic Flowcharts',
+      'Touch Panel GUI Screen Wireframes',
+      'Energy Efficiency ROI Reports'
     ],
-    badge: 'Specialized',
+    badge: 'Smart Building',
+    relatedIndustries: ['Corporate & Enterprises', 'Hospitality & Entertainment'],
+    faq: [
+      {
+        question: 'Can your automation system interface with legacy HVAC chillers?',
+        answer: 'Yes, our controllers support BACnet IP/MSTP, Modbus RTU, and KNX gateways to connect seamlessly with legacy chillers.'
+      }
+    ],
+    cta: 'Explore Building Automation Solutions'
   },
   {
-    id: 'security-surveillance',
-    title: 'Integrated Security & Surveillance Systems',
-    tagline: 'Enterprise IP CCTV, access control, perimeter defense, and AI video analytics',
-    icon: 'Shield',
+    id: 'networking',
+    slug: 'networking',
+    title: 'Enterprise IP Networking & Structured Cabling',
+    tagline: 'High-speed Cat6A/Fiber optic backbones, core routing, and managed Wi-Fi',
+    icon: '/assets/icons/solutions/networking.png',
     description:
-      'Mission-critical security architecture integrating ultra-HD IP surveillance cameras, AI video analytics (ANPR, facial recognition, crowd density), RFID biometric access control, and automated bollards for high-security facilities.',
+      'Robust enterprise networking infrastructure including Cat6A shield copper cabling, multi-gigabit fiber backbones, managed L2/L3 PoE+ switches, and high-density Wi-Fi 6E/7 access points engineered for low-latency AV-over-IP and security traffic.',
+    heroImage: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Data Centers & Server Server Farms',
+      'Enterprise Corporate Campuses',
+      'Government Secretariats',
+      'Educational Institutions'
+    ],
     keyFeatures: [
-      'AI-Powered IP Video Management Systems (VMS)',
-      'Automatic Number Plate Recognition (ANPR) & Gate Automation',
-      'Biometric Multi-factor Access Control & Visitor Management',
-      'Perimeter Intrusion Detection Systems (PIDS)',
-      'Centralized Security Operation Center (SOC) Console Desks',
+      'Category 6A / Category 7 Shielded Twisted Pair (STP) Cabling',
+      'Single-mode & Multi-mode OM4 Fiber Backbones',
+      'Layer 3 Managed Core Switches with IGMP Snooping for AV',
+      'Wi-Fi 6 / 6E Enterprise Access Points with Central Controller',
+      'Server Rack Cable Management & OTDR Fiber Testing'
     ],
-    equipmentBrands: ['Bosch Security', 'Hikvision Commercial', 'Dahua Enterprise', 'Honeywell', 'Axis Communications'],
+    equipmentBrands: ['Cisco Systems', 'Aruba Networks', 'CommScope NETCONNECT', 'Panduit', 'Netgear AV'],
     sampleDeliverables: [
-      'Camera Lens FOV & Storage Calculation Reports',
-      'Access Control Door Cable Topology',
-      'SOC Control Room Ergonomic Layouts',
+      'Fluke Cable Certification Test Results',
+      'Fiber Optic Patch Panel Routing Matrix',
+      'Network Switch Port & VLAN Allocation Mapping'
     ],
+    badge: 'High Reliability',
+    relatedIndustries: ['Corporate & Enterprises', 'Education & Research', 'Government & Public Sector'],
+    faq: [
+      {
+        question: 'Do you perform OTDR certification on fiber optics?',
+        answer: 'Yes, every fiber strand installed by EAIPL is tested using Fluke OTDR meters and documented with loss budget graphs.'
+      }
+    ],
+    cta: 'Request a Network Infrastructure Audit'
+  },
+  {
+    id: 'control-room',
+    slug: 'control-room',
+    title: 'Control Room & Command Center Solutions',
+    tagline: 'Ergonomic console desks, multi-view processors, and 24/7 video display walls',
+    icon: '/assets/icons/solutions/control-room.png',
+    description:
+      'Complete turnkey control room environments incorporating ISO 11064 ergonomic console furniture, multi-operator video wall controllers, ambient acoustic treatment, and redundant power infrastructure for round-the-clock critical operations.',
+    heroImage: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Smart City Integrated Command & Control Centers (ICCC)',
+      'Power Grid & Energy Dispatch Rooms',
+      'Disaster Management Operations Centers',
+      'Traffic Management & Rail Control Centers'
+    ],
+    keyFeatures: [
+      'ISO 11064 Ergonomic Operator Consoles with Motorized Height Adjustment',
+      'Multi-Screen KVM Matrix Systems for Instant Console Switching',
+      '24/7 Ultra-Narrow Bezel Video Walls or MicroLED Canvases',
+      'Acoustic Ceiling & Wall Panel Treatment for Operator Comfort',
+      'Redundant Clean Power & HVAC Environmental Controls'
+    ],
+    equipmentBrands: ['Barco', 'Christie', 'Crestron', 'Extron', 'Kramer', 'Pyrotech Consoles'],
+    sampleDeliverables: [
+      'ISO 11064 Sightline & Ergonomic Assessment Report',
+      'Operator Desk Cable Management Schematics',
+      'KVM Matrix Switching & Video Wall Preset Guides'
+    ],
+    badge: 'ISO 11064 Certified',
+    relatedIndustries: ['Smart Cities & Defense', 'Energy & Utilities', 'Government & Public Sector'],
+    faq: [
+      {
+        question: 'What is ISO 11064 compliance for control rooms?',
+        answer: 'ISO 11064 is the international standard for ergonomic design of control centers, governing operator sightlines, desk heights, lighting levels, and noise abatement.'
+      }
+    ],
+    cta: 'Design Your Command & Control Center'
+  },
+  {
+    id: 'auditorium',
+    slug: 'auditorium',
+    title: 'Auditorium & Multi-Purpose Hall AV',
+    tagline: 'Acoustic treatment, high-lumen projection, stage sound, and automated lighting',
+    icon: '/assets/icons/solutions/auditorium.png',
+    description:
+      'Comprehensive EPC contracts for civic, university, and corporate auditoriums combining electro-acoustic sound systems, motorized stage drapes, LED video walls, acoustic wall cladding, and centralized touch control.',
+    heroImage: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'State Government & Municipal Civic Halls',
+      'University & College Convocation Centers',
+      'Corporate Headquarters Town Hall Auditoriums',
+      'Performing Arts Theatres & Cultural Complexes'
+    ],
+    keyFeatures: [
+      'Line Array Speaker Systems Tuned via DSP Acoustic Processing',
+      'High-Lumen Laser Projection or Direct-View LED Stage Walls',
+      'Motorized Stage Rigging & Automated Stage Drapery',
+      'DMX Architectural & Theatrical Lighting Consoles',
+      'Acoustic Wall Panel Cladding with Custom Fabric Options'
+    ],
+    equipmentBrands: ['JBL Professional', 'Bose Pro', 'Crestron', 'ETC', 'Barco', 'Shure'],
+    sampleDeliverables: [
+      'Auditorium Acoustic Simulation & STI Reports',
+      'Stage Machinery Load & Wiring Drawings',
+      'One-Touch System Operation Manuals'
+    ],
+    badge: 'EPC Specialist',
+    relatedIndustries: ['Auditoriums & Performing Arts', 'Education & Research', 'Government & Public Sector'],
+    faq: [
+      {
+        question: 'Can EAIPL execute the entire auditorium contract on a turnkey basis?',
+        answer: 'Yes, as a Class-I EPC contractor, EAIPL handles acoustic civil works, stage mechanics, pro audio, video displays, stage lighting, and central automation under a single contract.'
+      }
+    ],
+    cta: 'Consult on Turnkey Auditorium Projects'
   },
   {
     id: 'healthcare-av',
+    slug: 'healthcare-av',
     title: 'Healthcare & Medical AV Solutions',
     tagline: 'Digital Operation Theatre (OT) integration, surgical displays, and telemedicine',
-    icon: 'Activity',
+    icon: '/assets/icons/solutions/healthcare.png',
     description:
       'High-grade medical AV integration for super-specialty hospitals, featuring uncompressed zero-latency 4K surgical video routing, OT glass touch panels, telemedicine streaming systems, and nurse call systems conforming to medical safety standards.',
+    heroImage: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80',
+    gallery: [
+      'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80'
+    ],
+    applications: [
+      'Digital Operation Theatres (Modular OTs)',
+      'Medical College Teaching Auditoriums',
+      'Telemedicine & Remote Surgical Consultation Rooms',
+      'Super-Specialty Hospital Command Centers'
+    ],
     keyFeatures: [
       'Uncompressed Zero-Latency 4K Surgical Video Matrixing',
       'Antimicrobial Sealed Touch Controllers & Wall Monitors',
       'Medical-grade Telemedicine Audio/Video Streaming',
       'Live Surgical Streaming to Medical College Lecture Halls',
-      'IP-Based Nurse Call Systems & Patient Room Intercoms',
+      'IP-Based Nurse Call Systems & Patient Room Intercoms'
     ],
     equipmentBrands: ['Barco Medical', 'Sony Healthcare', 'Crestron DigitalMedia', 'Stryker Integrated', 'Bosch Healthcare'],
     sampleDeliverables: [
       'Medical Grade AV Isolation Transformer Schematics',
       'Clean Room Wall Flush Mounting CAD Drawings',
-      'DICOM Compliance Testing Documentation',
+      'DICOM Compliance Testing Documentation'
     ],
-  },
-  {
-    id: 'central-control',
-    title: 'Centralized Automation & Control',
-    tagline: 'Unified touch-panel control for lighting, HVAC, AV, and environmental systems',
-    icon: 'Cpu',
-    description:
-      'Custom-programmed automation system processors pairing custom graphic user interfaces (GUIs) on tabletop or wall-mounted touch panels to streamline complex multi-device operations into intuitive single-touch preset buttons.',
-    keyFeatures: [
-      'Custom GUI Design tailored for C-suite Executives & Operators',
-      'Integrated Control of Lighting, Motorized Shades, HVAC & Displays',
-      'Automated Meeting Room Scheduling & Occupancy Sensors',
-      'Remote Network Monitoring & Predictive Maintenance Alerts',
-      'Secure TLS/SSL Encypted Control Protocol Architecture',
+    badge: 'Medical Grade',
+    relatedIndustries: ['Healthcare & Medical', 'Education & Research'],
+    faq: [
+      {
+        question: 'Are the touch panels suitable for clean room OT sterilisation?',
+        answer: 'Yes, we supply IP65 glass antimicrobial touch screens designed to withstand medical chemical wipes and sterile environments.'
+      }
     ],
-    equipmentBrands: ['Crestron Electronics', 'Extron Electronics', 'AMX by Harman', 'Kramer Electronics'],
-    sampleDeliverables: [
-      'Custom Touch Panel UX/UI Layout Maps',
-      'Control System Source Code & Logic Archives',
-      'Room Automation User Operating Manuals',
-    ],
-  },
-  {
-    id: 'pa-va',
-    title: 'Public Address & Voice Evacuation (PA/VA)',
-    tagline: 'EN54-certified mass notification and ambient sound distribution',
-    icon: 'Radio',
-    description:
-      'EN54 fire safety certified public address and life safety voice evacuation systems featuring redundant IP amplifier networks, zone paging consoles, background music distribution, and auto-failover emergency message generators.',
-    keyFeatures: [
-      'EN54-16 & EN54-24 Certified Life Safety Systems',
-      'Networked Dante / CobraNet Emergency Paging Consoles',
-      'Ambient Noise Sensing & Auto Volume Adjustment',
-      'Multi-Zone Background Music (BGM) Routing',
-      'Battery Backup Power Systems for Uninterrupted Paging',
-    ],
-    equipmentBrands: ['Bosch Praesensa / Plena', 'Honeywell Voice Alarm', 'TOA Electronics', 'Ateïs India'],
-    sampleDeliverables: [
-      'Speech Intelligibility CIS / STI Calculation Reports',
-      'Zone Paging Schematic Diagram',
-      'Fire Alarm Interfacing Matrix Documentation',
-    ],
-  },
+    cta: 'Request Healthcare AV Specifications'
+  }
 ];
 
 export const INDUSTRIES: IndustrySector[] = [
   {
-    id: 'corporate',
-    title: 'Corporate & Enterprises',
-    subtitle: 'Next-Generation Executive Boardrooms & Hybrid Collaboration Workspaces',
-    icon: 'Building2',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-    overview:
-      'EAIPL transforms corporate workplaces with reliable, automated AV environments. From C-suite executive boardrooms to agile huddle rooms and town hall spaces, our systems eliminate technology friction.',
-    primaryNeeds: [
-      'Seamless Zoom/Teams One-Touch Join Integration',
-      'Acoustic Echo Cancellation for Clear Teleconferencing',
-      'Centralized Room Scheduling & Facility Management',
-      'High-Impact Executive Fine-Pitch LED Displays',
-    ],
-    deployedSolutions: [
-      'Interactive 4K Display Panels',
-      'Ceiling Array Beamforming Microphones',
-      'Automated Motorized Blinds & Lighting Control',
-      'BYOD Wireless Presentation Hubs',
-    ],
-    keyClients: ['Tata Group Units', 'ITC Limited Facilities', 'Coal India Corporate HQ', 'Top IT MNC Campuses'],
-    caseStudyTitle: 'Tier-1 IT Executive Town Hall & Boardroom Integration',
-  },
-  {
-    id: 'education',
-    title: 'Education & Research Institutes',
-    subtitle: 'Smart Campus Infrastructure, Digital Lecture Halls & Distance Learning',
-    icon: 'GraduationCap',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
-    overview:
-      'Empowering premier universities, IITs, NITs, and medical colleges with digital classrooms, automated lecture capture systems, and acoustic sound reinforcement for large academic auditoriums.',
-    primaryNeeds: [
-      'Automated Instructor Tracking Cameras',
-      'Digital Podium with Integrated Interactive Writing Displays',
-      'Campus-wide Centralized PA/VA and Emergency Broadcasts',
-      'Hybrid Lecture Recording and LMS Integration',
-    ],
-    deployedSolutions: [
-      'Smart Classrooms & Hybrid E-Learning Hubs',
-      'University Senate Hall Delegate Systems',
-      'High-Power Acoustic Reinforcement for Auditoriums',
-      'Digital Signage Network for Campus Announcements',
-    ],
-    keyClients: ['IIT Kharagpur', 'IIM Calcutta', 'Jadavpur University', 'AIIMS Regional Campuses'],
-    caseStudyTitle: '50+ High-Definition Smart Classroom Rollout for Premier University',
-  },
-  {
     id: 'government',
-    title: 'Government & Public Sector (PSUs)',
-    subtitle: 'High-Security Council Chambers, Disaster Management & Command Centers',
-    icon: 'Landmark',
+    title: 'Government & Public Sector',
+    name: 'Government & Public Sector',
+    subtitle: 'Secure and scalable integrated technology solutions for government offices, public infrastructure, and institutional facilities.',
+    description: 'Secure and scalable integrated technology solutions for government offices, public infrastructure, and institutional facilities.',
+    overview: 'Secure and scalable integrated technology solutions for government offices, public infrastructure, and institutional facilities.',
+    icon: '/assets/icons/industries/government.png',
     image: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80',
-    overview:
-      'Providing 24/7 mission-critical systems for state secretariats, high courts, police command centers, and public sector undertakings with government-grade encryption and redundancy.',
     primaryNeeds: [
       'Redundant Mission-Critical Video Wall Processors',
       'Secure Encrypted Delegate Voting & Conference Systems',
@@ -301,17 +624,66 @@ export const INDUSTRIES: IndustrySector[] = [
       'State Secretariat Assembly Hall Audio & Voting System',
       'EN54 Certified PA Evacuation across Govt Buildings',
     ],
-    keyClients: ['State Public Works Department (PWD)', 'High Court of Calcutta', 'KMC Command Center', 'Coal India Ministry'],
+    keyClients: [],
     caseStudyTitle: 'State Disaster Management Control Room & MicroLED Video Wall',
+  },
+  {
+    id: 'corporate',
+    title: 'Corporate & Enterprises',
+    name: 'Corporate & Enterprises',
+    subtitle: 'Professional AV, collaboration, surveillance, and smart workplace solutions for modern corporate environments.',
+    description: 'Professional AV, collaboration, surveillance, and smart workplace solutions for modern corporate environments.',
+    overview: 'Professional AV, collaboration, surveillance, and smart workplace solutions for modern corporate environments.',
+    icon: '/assets/icons/industries/corporate.png',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    primaryNeeds: [
+      'Seamless Zoom/Teams One-Touch Join Integration',
+      'Acoustic Echo Cancellation for Clear Teleconferencing',
+      'Centralized Room Scheduling & Facility Management',
+      'High-Impact Executive Fine-Pitch LED Displays',
+    ],
+    deployedSolutions: [
+      'Interactive 4K Display Panels',
+      'Ceiling Array Beamforming Microphones',
+      'Automated Motorized Blinds & Lighting Control',
+      'BYOD Wireless Presentation Hubs',
+    ],
+    keyClients: [],
+    caseStudyTitle: 'Tier-1 IT Executive Town Hall & Boardroom Integration',
+  },
+  {
+    id: 'education',
+    title: 'Education & Research Institutes',
+    name: 'Education & Research Institutes',
+    subtitle: 'Advanced classroom audio visual systems, auditorium solutions, campus communication, and learning technologies.',
+    description: 'Advanced classroom audio visual systems, auditorium solutions, campus communication, and learning technologies.',
+    overview: 'Advanced classroom audio visual systems, auditorium solutions, campus communication, and learning technologies.',
+    icon: '/assets/icons/industries/education.png',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80',
+    primaryNeeds: [
+      'Automated Instructor Tracking Cameras',
+      'Digital Podium with Integrated Interactive Writing Displays',
+      'Campus-wide Centralized PA/VA and Emergency Broadcasts',
+      'Hybrid Lecture Recording and LMS Integration',
+    ],
+    deployedSolutions: [
+      'Smart Classrooms & Hybrid E-Learning Hubs',
+      'University Senate Hall Delegate Systems',
+      'High-Power Acoustic Reinforcement for Auditoriums',
+      'Digital Signage Network for Campus Announcements',
+    ],
+    keyClients: [],
+    caseStudyTitle: '50+ High-Definition Smart Classroom Rollout for Premier University',
   },
   {
     id: 'healthcare',
     title: 'Healthcare & Medical Colleges',
-    subtitle: 'Digital Operation Theatres, Telemedicine Suites & Medical Auditoriums',
-    icon: 'HeartPulse',
+    name: 'Healthcare & Medical Colleges',
+    subtitle: 'Reliable communication, public address, emergency notification, and integrated AV solutions for healthcare facilities.',
+    description: 'Reliable communication, public address, emergency notification, and integrated AV solutions for healthcare facilities.',
+    overview: 'Reliable communication, public address, emergency notification, and integrated AV solutions for healthcare facilities.',
+    icon: '/assets/icons/industries/healthcare.png',
     image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80',
-    overview:
-      'Delivering medical-grade AV networks that facilitate uncompressed 4K surgical video routing, real-time remote specialist consultations, and infection-resistant touch interfaces.',
     primaryNeeds: [
       'Zero-Latency Surgical Video Transmission in OT',
       'Antimicrobial Sealed Control Touchscreens',
@@ -324,17 +696,42 @@ export const INDUSTRIES: IndustrySector[] = [
       'Medical College Demonstration Auditoriums',
       'Hospital Public Address & Code-Blue Alert Systems',
     ],
-    keyClients: ['Apollo Hospitals Kolkata', 'Fortis Healthcare Facilities', 'IPGMER & SSKM Hospital', 'TATA Medical Center'],
+    keyClients: [],
     caseStudyTitle: 'Advanced Digital OT & Telemedicine Video Matrix for Super-Specialty Facility',
+  },
+  {
+    id: 'industrial',
+    title: 'Industrial & Manufacturing',
+    name: 'Industrial & Manufacturing',
+    subtitle: 'Robust surveillance, networking, automation, and safety systems designed for industrial operations and manufacturing environments.',
+    description: 'Robust surveillance, networking, automation, and safety systems designed for industrial operations and manufacturing environments.',
+    overview: 'Robust surveillance, networking, automation, and safety systems designed for industrial operations and manufacturing environments.',
+    icon: '/assets/icons/industries/industrial.png',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    primaryNeeds: [
+      'Explosion-Proof / Weatherproof IP Cameras & PA Speakers',
+      'High-Capacity Industrial Network Switches & Fiber Backbone',
+      'Plant-Wide Voice Evacuation & Emergency Alarm Integration',
+      'Central Operations Monitoring Video Walls',
+    ],
+    deployedSolutions: [
+      'Industrial IP CCTV & Thermal Perimeter Surveillance',
+      'Heavy-Duty Public Address & Intercom Systems',
+      'Plant Control Room Command Video Walls',
+      'Access Control & Attendance Automation',
+    ],
+    keyClients: [],
+    caseStudyTitle: 'Integrated Industrial Surveillance & PA Network for Manufacturing Facility',
   },
   {
     id: 'hospitality',
     title: 'Hospitality & Entertainment',
-    subtitle: 'Grand Hotel Ballrooms, Convention Centers & Luxury Lounge Acoustics',
-    icon: 'Utensils',
+    name: 'Hospitality & Entertainment',
+    subtitle: 'Integrated audio visual, conference, digital signage, and guest experience solutions for hotels and hospitality spaces.',
+    description: 'Integrated audio visual, conference, digital signage, and guest experience solutions for hotels and hospitality spaces.',
+    overview: 'Integrated audio visual, conference, digital signage, and guest experience solutions for hotels and hospitality spaces.',
+    icon: '/assets/icons/industries/hospitality.png',
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80',
-    overview:
-      'Designing versatile audio-visual and theatrical lighting systems for luxury hotel grand ballrooms, convention halls, rooftop venues, and fine dining spaces.',
     primaryNeeds: [
       'Multi-Zone Audio Matrixing with Flexible Room Partitioning',
       'Automated Scene Lighting Control for Weddings & Conferences',
@@ -347,31 +744,8 @@ export const INDUSTRIES: IndustrySector[] = [
       'Rooftop Lounge Weatherproof Sound Systems',
       'Digital Signage for Event Schedules & Wayfinding',
     ],
-    keyClients: ['ITC Sonar & ITC Royal Bengal', 'JW Marriott Kolkata', 'The Oberoi Grand', 'Hyatt Regency'],
+    keyClients: [],
     caseStudyTitle: 'Grand Convention Ballroom Audio-Visual & DMX Stage Lighting Architecture',
-  },
-  {
-    id: 'auditoriums',
-    title: 'Auditoriums & Performing Arts Centers',
-    subtitle: 'Turnkey Acoustics, Stage Mechanics, Line Arrays & Theatrical Lighting',
-    icon: 'Theater',
-    image: 'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?auto=format&fit=crop&w=1200&q=80',
-    overview:
-      'EAIPL’s crowning flagship domain: full EPC turnkey design and execution of 500 to 3,000+ seat auditoriums, including wall acoustic paneling, stage curtains, line arrays, and lighting.',
-    primaryNeeds: [
-      'Even Sound Coverage without Acoustic Echoes or Dead Zones',
-      'Motorized Stage Rigging & Acoustic Reflector Shells',
-      'Intelligent Moving Head Lighting & DMX Consoles',
-      'Pristine RT60 Acoustics suited for both Speech & Music',
-    ],
-    deployedSolutions: [
-      'DSP Beam-Steered Line Array Sound Systems',
-      'Custom Fabric & Wooden Acoustic Wall Treatments',
-      'Motorized Stage Curtain Tracks & Cyclorama Drapes',
-      'Acoustic Shells & Stage Monitor Systems',
-    ],
-    keyClients: ['State Cultural Department Halls', 'University Grand Auditoriums', 'Municipal Cultural Centers'],
-    caseStudyTitle: '1,800-Seat State Cultural Center Turnkey Electro-Acoustic & Stage Overhaul',
   },
 ];
 
@@ -580,7 +954,7 @@ export const ENGINEERING_STEPS: EngineeringStep[] = [
       'Preliminary Budget & Equipment Options',
     ],
     standardsFollowed: ['IS 13824 Acoustics', 'AVIXA Systems Standards'],
-    icon: 'MessageSquareText',
+    icon: '/assets/icons/process/site-survey.png',
   },
   {
     stepNumber: '02',
@@ -594,7 +968,7 @@ export const ENGINEERING_STEPS: EngineeringStep[] = [
       'Structural Cable Pathway Assessment Report',
     ],
     standardsFollowed: ['ISO 3382 Acoustic Measurement', 'ANSI/ASA S12.2'],
-    icon: 'Scan',
+    icon: '/assets/icons/process/design.png',
   },
   {
     stepNumber: '03',
@@ -608,7 +982,7 @@ export const ENGINEERING_STEPS: EngineeringStep[] = [
       'System Single-Line Schematics (SLD) & BOQ',
     ],
     standardsFollowed: ['AVIXA F501.01:2015', 'BIS / IEEE Standards'],
-    icon: 'FileCode2',
+    icon: '/assets/icons/process/procurement.png',
   },
   {
     stepNumber: '04',
@@ -622,7 +996,7 @@ export const ENGINEERING_STEPS: EngineeringStep[] = [
       'Quality Inspection & Safety Milestone Certificates',
     ],
     standardsFollowed: ['ISO 9001 Quality Protocols', 'NEC Cable Safety'],
-    icon: 'Wrench',
+    icon: '/assets/icons/process/installation.png',
   },
   {
     stepNumber: '05',
@@ -636,7 +1010,7 @@ export const ENGINEERING_STEPS: EngineeringStep[] = [
       'Factory Acceptance Test (FAT) Sign-off',
     ],
     standardsFollowed: ['AVIXA A102.01:2019 Audio System Performance'],
-    icon: 'SlidersHorizontal',
+    icon: '/assets/icons/process/testing.png',
   },
   {
     stepNumber: '06',
@@ -650,7 +1024,7 @@ export const ENGINEERING_STEPS: EngineeringStep[] = [
       '24/7 Dedicated AMC Hotlines & On-Site SLA Response',
     ],
     standardsFollowed: ['EAIPL ISO 9001 AMC Quality Standard'],
-    icon: 'CheckCircle2',
+    icon: '/assets/icons/process/handover.png',
   },
 ];
 
@@ -818,39 +1192,59 @@ export const TESTIMONIALS: ClientTestimonial[] = [
 
 export const BRANCH_OFFICES: BranchOffice[] = [
   {
-    city: 'Kolkata (Corporate Head Office)',
-    type: 'Headquarters & Engineering Lab',
-    address: 'EAIPL House, Sector-V, Salt Lake City, Kolkata - 700091, West Bengal, India',
-    phone: '+91 33 2289 1234 / +91 98300 12345',
-    email: 'kolkata@eaipl.co.in',
+    id: 'kolkata',
+    city: 'Kolkata',
+    officeName: 'Kolkata Corporate Head Office',
+    officeType: 'Head Office',
+    type: 'Registered Corporate Head Office',
+    address: '83/6, Ballygunge Place, Ballygunge, Kolkata, West Bengal - 700019',
+    phone: '+91 70445 50001',
+    email: 'info@eaipl.co.in',
+    mapQuery: '83/6, Ballygunge Place, Ballygunge, Kolkata, West Bengal 700019',
   },
   {
-    city: 'Bhubaneswar Regional Office',
-    type: 'Regional Project & AMC Hub',
-    address: 'Saheed Nagar, Janpath, Bhubaneswar - 751007, Odisha, India',
-    phone: '+91 674 254 9870',
-    email: 'bhubaneswar@eaipl.co.in',
+    id: 'delhi',
+    city: 'Delhi',
+    officeName: 'Delhi Regional Office',
+    officeType: 'Regional Office',
+    type: 'North India Regional Office',
+    address: 'Connaught Place, New Delhi, Delhi - 110001',
+    phone: '+91 70445 50001',
+    email: 'info@eaipl.co.in',
+    mapQuery: 'Connaught Place, New Delhi, Delhi 110001',
   },
   {
-    city: 'Guwahati Branch',
-    type: 'North-East Regional Center',
-    address: 'GS Road, Dispur, Guwahati - 781005, Assam, India',
-    phone: '+91 361 223 4567',
-    email: 'guwahati@eaipl.co.in',
+    id: 'bhubaneswar',
+    city: 'Bhubaneswar',
+    officeName: 'Bhubaneswar Regional Office',
+    officeType: 'Regional Office',
+    type: 'Odisha Regional Office',
+    address: 'Saheed Nagar, Janpath, Bhubaneswar, Odisha - 751007',
+    phone: '+91 70445 50001',
+    email: 'info@eaipl.co.in',
+    mapQuery: 'Saheed Nagar, Janpath, Bhubaneswar, Odisha 751007',
   },
   {
-    city: 'Ranchi Service Office',
-    type: 'Jharkhand Support Center',
-    address: 'Main Road, Overbridge Square, Ranchi - 834001, Jharkhand, India',
-    phone: '+91 651 233 1122',
-    email: 'ranchi@eaipl.co.in',
+    id: 'guwahati',
+    city: 'Guwahati',
+    officeName: 'Guwahati Regional Office',
+    officeType: 'Regional Office',
+    type: 'North-East Regional Office',
+    address: 'GS Road, Dispur, Guwahati, Assam - 781005',
+    phone: '+91 70445 50001',
+    email: 'info@eaipl.co.in',
+    mapQuery: 'GS Road, Dispur, Guwahati, Assam 781005',
   },
   {
-    city: 'Patna Service Office',
-    type: 'Bihar Support Center',
-    address: 'Exhibition Road, Patna - 800001, Bihar, India',
-    phone: '+91 612 220 3344',
-    email: 'patna@eaipl.co.in',
+    id: 'ranchi',
+    city: 'Ranchi',
+    officeName: 'Ranchi Regional Office',
+    officeType: 'Regional Office',
+    type: 'Jharkhand Regional Office',
+    address: 'Main Road, Overbridge Square, Ranchi, Jharkhand - 834001',
+    phone: '+91 70445 50001',
+    email: 'info@eaipl.co.in',
+    mapQuery: 'Main Road, Overbridge Square, Ranchi, Jharkhand 834001',
   },
 ];
 
@@ -881,3 +1275,5 @@ export const FAQS = [
       'We offer Comprehensive (CAMC) and Non-Comprehensive AMCs with defined Service Level Agreements (SLAs). Options include dedicated on-site resident engineers for critical venues, 4-hour emergency response times, quarterly preventive maintenance routines, and spare replacement backings.',
   },
 ];
+
+export const PROJECT_CASE_STUDIES = PROJECTS;

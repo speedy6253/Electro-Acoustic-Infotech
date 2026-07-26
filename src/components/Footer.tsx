@@ -1,207 +1,177 @@
 import React from 'react';
-import {
-  ShieldCheck,
-  Phone,
-  Mail,
-  MapPin,
-  ExternalLink,
-  Award,
-  Layers,
-  Building2,
-  CheckCircle2,
-  Wrench,
-  FileText,
-} from 'lucide-react';
-import { COMPANY_INFO, BRANCH_OFFICES, SOLUTIONS, INDUSTRIES } from '../data/eaiplData';
+import { ShieldCheck, Phone, Mail, MapPin } from 'lucide-react';
+import { COMPANY_INFO } from '../data/eaiplData';
+import { EaiplLogo } from './EaiplLogo';
+import { NavView } from './Header';
 
 interface FooterProps {
   onOpenConsultation: (type?: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket') => void;
+  onNavigate?: (view: NavView, param?: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenConsultation, onNavigate }) => {
+  const handleNav = (view: NavView, param?: string) => {
+    if (onNavigate) {
+      onNavigate(view, param);
+    } else {
+      window.location.hash = view;
+    }
+  };
+
   return (
-    <footer className="bg-[#050B18] text-slate-400 text-xs font-sans border-t border-slate-800">
-      {/* Main Footer Links & Information Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
-          {/* Column 1: Corporate Profile (4 cols) */}
-          <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#1C2541] border border-[#C59B27]/40 flex items-center justify-center text-white font-mono font-bold text-lg text-[#C59B27] shrink-0">
-                EAIPL
-              </div>
-              <div>
-                <div className="font-bold text-base text-white tracking-tight">
-                  ELECTRO ACOUSTIC
-                </div>
-                <div className="text-[10px] font-semibold text-[#C59B27] tracking-widest uppercase">
-                  Infotech Pvt. Ltd.
-                </div>
-              </div>
+    <footer className="bg-white text-[#475569] text-xs font-sans border-t border-[#E2E8F0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Info */}
+          <div className="space-y-3 md:col-span-1">
+            <div className="mb-2">
+              <EaiplLogo className="w-[140px] h-auto" />
             </div>
-
-            <p className="text-slate-300 leading-relaxed text-xs">
-              Pioneering Class-I Turnkey System Integrator specializing in high-intelligibility electro-acoustics, 4K video matrixing, DMX stage mechanics, and EN54 voice alarm infrastructure across India since 1998.
+            <p className="text-xs text-[#64748B] leading-relaxed">
+              Class-I Turnkey EPC Contractor for electro-acoustics, AV matrixing, stage mechanics & EN54 voice alarm systems.
             </p>
-
-            <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 space-y-1.5 text-[11px]">
-              <div className="flex items-center gap-1.5 text-emerald-400 font-bold">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>{COMPANY_INFO.isoCertification}</span>
-              </div>
-              <div className="text-slate-300">{COMPANY_INFO.govRegistration}</div>
-            </div>
-
-            {/* Direct Contact Details */}
-            <div className="space-y-2 text-xs text-slate-300 pt-2">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" />
-                <span>{BRANCH_OFFICES[0].address}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#C59B27] shrink-0" />
-                <span>{COMPANY_INFO.phone} / {COMPANY_INFO.tollFree}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#C59B27] shrink-0" />
-                <span>{COMPANY_INFO.contactEmail}</span>
-              </div>
+            <div className="inline-flex items-center gap-1.5 text-xs text-emerald-700 font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <span>{COMPANY_INFO.isoCertification}</span>
             </div>
           </div>
 
-          {/* Column 2: Solutions Domains (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-2">
-              <Layers className="w-3.5 h-3.5 text-[#C59B27]" />
-              Turnkey Solution Domains
+          {/* Quick Navigation Links */}
+          <div className="space-y-2">
+            <h4 className="text-xs font-bold text-[#0F172A] uppercase tracking-wider">
+              Navigation
             </h4>
-            <ul className="space-y-2">
-              {SOLUTIONS.map((s) => (
-                <li key={s.id}>
-                  <a
-                    href="#solutions"
-                    className="hover:text-white hover:underline transition-colors flex items-center gap-1"
-                  >
-                    <span className="w-1 h-1 rounded-full bg-[#C59B27]" />
-                    <span>{s.title}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3: Industries & Sectors (2 cols) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-2">
-              <Building2 className="w-3.5 h-3.5 text-[#C59B27]" />
-              Sectors Served
-            </h4>
-            <ul className="space-y-2">
-              {INDUSTRIES.map((i) => (
-                <li key={i.id}>
-                  <a
-                    href="#industries"
-                    className="hover:text-white hover:underline transition-colors flex items-center gap-1"
-                  >
-                    <span className="w-1 h-1 rounded-full bg-[#C59B27]" />
-                    <span>{i.title.split(' ')[0]} Facilities</span>
-                  </a>
-                </li>
-              ))}
+            <ul className="space-y-1.5">
               <li>
-                <a
-                  href="#projects"
-                  className="hover:text-white hover:underline transition-colors flex items-center gap-1"
+                <button
+                  onClick={() => handleNav('home')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
                 >
-                  <span className="w-1 h-1 rounded-full bg-[#C59B27]" />
-                  <span>Case Studies</span>
-                </a>
+                  Home Overview
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('solutions')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Solutions Overview
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('industries')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Industries Overview
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('projects')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Project Portfolio
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('media')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Media Centre
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('contact')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Contact Us
+                </button>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Quick Engineering Portals (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5 border-b border-slate-800 pb-2">
-              <Wrench className="w-3.5 h-3.5 text-[#C59B27]" />
-              Enterprise Direct Portals
+          {/* Action Portals */}
+          <div className="space-y-2">
+            <h4 className="text-xs font-bold text-[#0F172A] uppercase tracking-wider">
+              Portals
             </h4>
-            <div className="space-y-2">
-              <button
-                onClick={() => onOpenConsultation('RFP')}
-                className="w-full p-2.5 rounded bg-slate-900 border border-slate-800 text-slate-200 hover:text-white hover:border-[#C59B27] transition-all text-left flex items-center justify-between"
-              >
-                <span className="flex items-center gap-2">
-                  <FileText className="w-3.5 h-3.5 text-[#C59B27]" />
-                  <span>Submit RFP / Tender BOQ</span>
-                </span>
-                <ExternalLink className="w-3 h-3 text-slate-500" />
-              </button>
+            <ul className="space-y-1.5">
+              <li>
+                <button
+                  onClick={() => onOpenConsultation('RFP')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Submit RFP / Tender BOQ
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenConsultation('Site Survey')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Book Site Survey
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenConsultation('Consultation')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  Technical Consultation
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenConsultation('AMC Ticket')}
+                  className="hover:text-[#1570EF] transition-colors text-left"
+                >
+                  AMC Support Portal
+                </button>
+              </li>
+            </ul>
+          </div>
 
-              <button
-                onClick={() => onOpenConsultation('Site Survey')}
-                className="w-full p-2.5 rounded bg-slate-900 border border-slate-800 text-slate-200 hover:text-white hover:border-[#C59B27] transition-all text-left flex items-center justify-between"
-              >
-                <span className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#C59B27]" />
-                  <span>Schedule Site Survey</span>
-                </span>
-                <ExternalLink className="w-3 h-3 text-slate-500" />
-              </button>
-
-              <button
-                onClick={() => onOpenConsultation('AMC Ticket')}
-                className="w-full p-2.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-300 hover:bg-amber-500/20 transition-all text-left flex items-center justify-between font-semibold"
-              >
-                <span className="flex items-center gap-2">
-                  <Wrench className="w-3.5 h-3.5" />
-                  <span>24/7 AMC Support Portal</span>
-                </span>
-                <ExternalLink className="w-3 h-3 text-amber-400" />
-              </button>
-            </div>
-
-            <div className="pt-2 text-[11px]">
-              <div className="font-semibold text-slate-300 mb-1">Official Media Page:</div>
-              <a
-                href={COMPANY_INFO.facebookPage}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-amber-400 hover:underline flex items-center gap-1"
-              >
-                <span>facebook.com/EAIPLINDIA</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
+          {/* Direct Contact Info */}
+          <div className="space-y-2">
+            <h4 className="text-xs font-bold text-[#0F172A] uppercase tracking-wider">
+              Contact
+            </h4>
+            <div className="space-y-1.5 text-xs text-[#64748B]">
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-[#1570EF] shrink-0" />
+                <span>{COMPANY_INFO.hqLocation}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-[#1570EF] shrink-0" />
+                <span>{COMPANY_INFO.phone}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Mail className="w-3.5 h-3.5 text-[#1570EF] shrink-0" />
+                <span>{COMPANY_INFO.contactEmail}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Regional Branch Footprint Bar */}
-      <div className="bg-[#030712] border-t border-slate-800/80 py-6 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 text-[11px] text-slate-400">
-          {BRANCH_OFFICES.map((b) => (
-            <div key={b.city} className="space-y-0.5 border-l border-slate-800 pl-3">
-              <strong className="text-white block">{b.city}</strong>
-              <div className="text-slate-400">{b.phone}</div>
-              <div className="text-[#C59B27] text-[10px]">{b.email}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Bottom Legal Copyright Bar */}
-      <div className="bg-[#02050e] border-t border-slate-900 py-4 px-4 text-center sm:text-left text-[11px] text-slate-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+        {/* Bottom Bar */}
+        <div className="mt-8 pt-6 border-t border-[#E2E8F0] flex flex-col sm:flex-row items-center justify-between text-xs text-[#94A3B8] gap-3">
           <div>
-            © {new Date().getFullYear()} {COMPANY_INFO.name} All Rights Reserved. ISO 9001:2015 Certified.
+            © {new Date().getFullYear()} {COMPANY_INFO.name}. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <a href="#privacy" className="hover:text-slate-300">ISO Quality Policy</a>
+            <a
+              href={COMPANY_INFO.facebookPage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#1570EF] transition-colors"
+            >
+              Facebook Official Hub
+            </a>
             <span>•</span>
-            <a href="#terms" className="hover:text-slate-300">Terms of Engineering</a>
-            <span>•</span>
-            <a href="#sitemap" className="hover:text-slate-300">GeM Compliance</a>
+            <span className="text-[#64748B]">Class-I Turnkey Vendor</span>
           </div>
         </div>
       </div>

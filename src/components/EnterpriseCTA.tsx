@@ -1,17 +1,11 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import {
   FileText,
   Calendar,
   Wrench,
   PhoneCall,
   ShieldCheck,
-  Award,
-  ArrowRight,
-  Mail,
-  Building2,
 } from 'lucide-react';
-import { COMPANY_INFO } from '../data/eaiplData';
 
 interface EnterpriseCTAProps {
   onOpenConsultation: (type?: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket') => void;
@@ -19,100 +13,78 @@ interface EnterpriseCTAProps {
 
 export const EnterpriseCTA: React.FC<EnterpriseCTAProps> = ({ onOpenConsultation }) => {
   return (
-    <section className="py-16 sm:py-24 bg-[#0B132B] text-white font-sans relative overflow-hidden border-b border-slate-800">
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1C2541_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-slate-900 to-[#0B132B] rounded-2xl border border-slate-800 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+    <section className="py-16 sm:py-20 bg-white text-[#0F172A] font-sans border-b border-[#E2E8F0]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-8 sm:p-12 shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Narrative */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-[#C59B27] text-xs font-bold uppercase tracking-wider">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                Direct Senior Engineering Engagement
+            <div className="lg:col-span-6 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] text-[#1D4ED8] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#1570EF]" />
+                Engineering Consultation
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-                Ready to Engineer Your Facility's Electro-Acoustic & AV Infrastructure?
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#0F172A]">
+                Ready to Upgrade Your Facility Infrastructure?
               </h2>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Connect directly with EAIPL’s senior systems architects for RFP BOQ vetting, 3D EASE acoustic simulations, tender specs, or 24/7 AMC SLA maintenance contracts.
+              <p className="text-sm text-[#475569] leading-relaxed">
+                Connect with EAIPL’s senior engineering team for tender specifications, acoustic simulations, and turnkey project quotes.
               </p>
-
-              <div className="flex flex-wrap items-center gap-4 text-xs text-slate-300 pt-2">
-                <div className="flex items-center gap-1.5">
-                  <Award className="w-4 h-4 text-[#C59B27]" />
-                  <span>ISO 9001:2015 Confidentiality Protocols</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <Building2 className="w-4 h-4 text-[#C59B27]" />
-                  <span>Class-I Govt & PWD Approved</span>
-                </div>
-              </div>
             </div>
 
-            {/* Right Quick Trigger Grid */}
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Right Quick Actions */}
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
                 onClick={() => onOpenConsultation('RFP')}
-                className="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-[#C59B27] transition-all text-left group"
+                className="p-4 rounded-xl bg-white hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#1570EF] transition-all text-left shadow-2xs group"
               >
-                <div className="p-2 rounded-lg bg-[#C59B27] text-slate-950 w-fit mb-2">
+                <div className="w-8 h-8 rounded-lg bg-[#1570EF] text-white flex items-center justify-center mb-2">
                   <FileText className="w-4 h-4" />
                 </div>
-                <div className="text-sm font-bold text-white group-hover:text-[#C59B27] transition-colors">
+                <div className="text-sm font-bold text-[#0F172A] group-hover:text-[#1570EF]">
                   Submit RFP / BOQ
                 </div>
-                <div className="text-xs text-slate-400 mt-1">
-                  Upload tender specs & drawings
-                </div>
+                <div className="text-xs text-[#64748B] mt-0.5">Upload tender requirements</div>
               </button>
 
               <button
                 onClick={() => onOpenConsultation('Site Survey')}
-                className="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-[#C59B27] transition-all text-left group"
+                className="p-4 rounded-xl bg-white hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#1570EF] transition-all text-left shadow-2xs group"
               >
-                <div className="p-2 rounded-lg bg-slate-700 text-white w-fit mb-2">
-                  <Calendar className="w-4 h-4 text-[#C59B27]" />
+                <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] text-[#1570EF] flex items-center justify-center mb-2">
+                  <Calendar className="w-4 h-4" />
                 </div>
-                <div className="text-sm font-bold text-white group-hover:text-[#C59B27] transition-colors">
+                <div className="text-sm font-bold text-[#0F172A] group-hover:text-[#1570EF]">
                   Book Site Survey
                 </div>
-                <div className="text-xs text-slate-400 mt-1">
-                  3D ray tracing & RT60 test
-                </div>
+                <div className="text-xs text-[#64748B] mt-0.5">On-site acoustic assessment</div>
               </button>
 
               <button
                 onClick={() => onOpenConsultation('Consultation')}
-                className="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-[#C59B27] transition-all text-left group"
+                className="p-4 rounded-xl bg-white hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#1570EF] transition-all text-left shadow-2xs group"
               >
-                <div className="p-2 rounded-lg bg-slate-700 text-white w-fit mb-2">
-                  <PhoneCall className="w-4 h-4 text-[#C59B27]" />
+                <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] text-[#1570EF] flex items-center justify-center mb-2">
+                  <PhoneCall className="w-4 h-4" />
                 </div>
-                <div className="text-sm font-bold text-white group-hover:text-[#C59B27] transition-colors">
-                  Book Consultation
+                <div className="text-sm font-bold text-[#0F172A] group-hover:text-[#1570EF]">
+                  Technical Consultation
                 </div>
-                <div className="text-xs text-slate-400 mt-1">
-                  Technical briefing with engineer
-                </div>
+                <div className="text-xs text-[#64748B] mt-0.5">Speak with chief engineer</div>
               </button>
 
               <button
                 onClick={() => onOpenConsultation('AMC Ticket')}
-                className="p-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:border-[#C59B27] transition-all text-left group"
+                className="p-4 rounded-xl bg-white hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#1570EF] transition-all text-left shadow-2xs group"
               >
-                <div className="p-2 rounded-lg bg-slate-700 text-white w-fit mb-2">
-                  <Wrench className="w-4 h-4 text-[#C59B27]" />
+                <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] text-[#1570EF] flex items-center justify-center mb-2">
+                  <Wrench className="w-4 h-4" />
                 </div>
-                <div className="text-sm font-bold text-white group-hover:text-[#C59B27] transition-colors">
-                  AMC Support Ticket
+                <div className="text-sm font-bold text-[#0F172A] group-hover:text-[#1570EF]">
+                  AMC Portal
                 </div>
-                <div className="text-xs text-slate-400 mt-1">
-                  Log SLA maintenance ticket
-                </div>
+                <div className="text-xs text-[#64748B] mt-0.5">Maintenance & SLA support</div>
               </button>
             </div>
           </div>

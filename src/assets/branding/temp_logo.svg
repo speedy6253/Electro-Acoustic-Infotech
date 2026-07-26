@@ -1,0 +1,21 @@
+<svg viewBox="0 0 500 500" width="1000" height="1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#FFFFFF" />
+  <defs>
+    <linearGradient id="eaiplGreenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#82BA1A" />
+      <stop offset="100%" stop-color="#639410" />
+    </linearGradient>
+  </defs>
+
+  <rect x="40" y="50" width="420" height="280" rx="95" fill="url(#eaiplGreenGrad)" />
+  <rect x="25" y="182" width="450" height="22" fill="#FFFFFF" />
+
+  <g fill="#FFFFFF">
+    <path d="M 90 100 H 180 Q 195 100 180 130 H 125 V 160 H 175 V 190 H 125 V 230 H 195 V 260 H 90 Z" />
+    <path d="M 210 100 H 285 Q 310 100 310 135 V 260 H 280 V 205 H 235 V 260 H 210 Z M 235 130 V 175 H 280 V 130 Z" />
+    <path d="M 335 145 H 365 V 260 H 335 Z" />
+    <rect x="335" y="100" width="30" height="30" rx="3" fill="#FFFFFF" />
+  </g>
+
+  <text x="250" y="415" text-anchor="middle" fill="#0F172A" font-size="42" font-weight="900" font-style="italic" font-family="sans-serif" letter-spacing="-1px">Technology Meets Elegance</text>
+</svg>

@@ -8,140 +8,150 @@ import {
   Menu,
   X,
   FileText,
-  Award,
   Layers,
   Building2,
-  Tv,
-  Volume2,
-  Wrench,
-  Radio,
   ExternalLink,
+  ArrowRight,
 } from 'lucide-react';
 import { COMPANY_INFO, SOLUTIONS, INDUSTRIES } from '../data/eaiplData';
+import { EaiplLogo } from './EaiplLogo';
+import { IconAsset } from './IconAsset';
+
+export type NavView =
+  | 'home'
+  | 'solutions'
+  | 'solution-detail'
+  | 'industries'
+  | 'projects'
+  | 'media'
+  | 'contact';
 
 interface HeaderProps {
   onOpenConsultation: (type?: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket') => void;
+  currentView?: NavView;
+  onNavigate?: (view: NavView, param?: string) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+interface NavLinkItem {
+  label: string;
+  id: string;
+  view: NavView;
+  href: string;
+  hasDropdown?: 'solutions' | 'industries';
+}
+
+export const Header: React.FC<HeaderProps> = ({
+  onOpenConsultation,
+  currentView = 'home',
+  onNavigate,
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<'solutions' | 'industries' | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Solutions', href: '#solutions', hasDropdown: 'solutions' as const },
-    { label: 'Industries', href: '#industries', hasDropdown: 'industries' as const },
-    { label: 'Featured Projects', href: '#projects' },
-    { label: 'Engineering Process', href: '#process' },
-    { label: 'OEM Partners', href: '#partners' },
-    { label: 'Commendations', href: '#testimonials' },
-    { label: 'FAQ', href: '#faq' },
+  const navLinks: NavLinkItem[] = [
+    { label: 'Home', id: 'home', view: 'home', href: '#' },
+    { label: 'Solutions', id: 'solutions', view: 'solutions', href: '#solutions', hasDropdown: 'solutions' },
+    { label: 'Industries', id: 'industries', view: 'industries', href: '#industries', hasDropdown: 'industries' },
+    { label: 'Projects', id: 'projects', view: 'projects', href: '#projects' },
+    { label: 'Media', id: 'media', view: 'media', href: '#media' },
+    { label: 'Contact', id: 'contact', view: 'contact', href: '#contact' },
   ];
+
+  const handleNavClick = (view: NavView, param?: string) => {
+    setActiveDropdown(null);
+    setMobileMenuOpen(false);
+    if (onNavigate) {
+      onNavigate(view, param);
+    } else {
+      if (view === 'solution-detail' && param) {
+        window.location.hash = `solutions/${param}`;
+      } else if (view === 'home') {
+        window.location.hash = '';
+      } else {
+        window.location.hash = view;
+      }
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full font-sans">
       {/* Top Utility Announcement & Emergency Bar */}
-      <div className="bg-[#0B132B] text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+      <div className="bg-[#EDF8FB] text-[#475569] text-xs py-2 px-4 border-b border-[#D7E8F3]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
-            <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="flex items-center gap-1.5 text-emerald-700 font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               {COMPANY_INFO.isoCertification}
             </span>
-            <span className="hidden md:inline text-slate-600">|</span>
-            <span className="hidden md:inline text-slate-300">
+            <span className="hidden md:inline text-[#CBD5E1]">|</span>
+            <span className="hidden md:inline text-[#334155] font-medium">
               {COMPANY_INFO.govRegistration}
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-300 flex-wrap justify-center sm:justify-end">
+          <div className="flex items-center gap-4 text-[#475569] flex-wrap justify-center sm:justify-end">
             <a
               href={`tel:${COMPANY_INFO.phone}`}
-              className="flex items-center gap-1 hover:text-white transition-colors"
+              className="flex items-center gap-1 hover:text-[#1570EF] transition-colors"
             >
-              <Phone className="w-3 h-3 text-[#C59B27]" />
-              <span>HQ: {COMPANY_INFO.phone}</span>
+              <Phone className="w-3 h-3 text-[#1570EF]" />
+              <span className="font-medium">HQ: {COMPANY_INFO.phone}</span>
             </a>
             <a
               href={`mailto:${COMPANY_INFO.contactEmail}`}
-              className="hidden lg:flex items-center gap-1 hover:text-white transition-colors"
+              className="hidden lg:flex items-center gap-1 hover:text-[#1570EF] transition-colors"
             >
-              <Mail className="w-3 h-3 text-[#C59B27]" />
-              <span>{COMPANY_INFO.contactEmail}</span>
+              <Mail className="w-3 h-3 text-[#1570EF]" />
+              <span className="font-medium">{COMPANY_INFO.contactEmail}</span>
             </a>
             <button
               onClick={() => onOpenConsultation('AMC Ticket')}
-              className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 hover:bg-amber-500/20 transition-all font-semibold flex items-center gap-1"
+              className="px-2.5 py-0.5 rounded bg-[#EFF6FF] text-[#1D4ED8] hover:bg-[#DBEAFE] font-semibold text-[11px] border border-[#BFDBFE] transition-colors"
             >
-              <Wrench className="w-3 h-3" />
-              AMC Support Portal
+              AMC Portal
             </button>
           </div>
         </div>
       </div>
 
-      {/* Main Corporate Navigation Bar */}
-      <div
-        className={`w-full transition-all duration-300 ${
-          isScrolled
-            ? 'bg-[#0B132B]/95 backdrop-blur-md text-white shadow-xl py-3 border-b border-slate-800'
-            : 'bg-[#0B132B] text-white py-4 border-b border-slate-800/80'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Corporate Brand Identity */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-gradient-to-br from-[#1C2541] to-[#0B132B] border border-[#C59B27]/40 flex items-center justify-center text-white shadow-md group-hover:border-[#C59B27] transition-all shrink-0">
-              <span className="font-mono font-bold text-lg text-[#C59B27] tracking-tighter">
-                EAIPL
-              </span>
-            </div>
-            <div>
-              <div className="font-bold text-base sm:text-lg tracking-tight text-white leading-none">
-                ELECTRO ACOUSTIC
-              </div>
-              <div className="text-[10px] sm:text-xs font-semibold text-[#C59B27] tracking-widest uppercase mt-0.5">
-                Infotech Pvt. Ltd. • Since 1998
-              </div>
-            </div>
-          </a>
+      {/* Main Navbar */}
+      <div className="bg-white border-b border-[#D7E8F3] shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[106px] sm:min-h-[114px] py-2 flex items-center justify-between gap-4">
+          {/* Official Company Logo */}
+          <button
+            onClick={() => handleNavClick('home')}
+            className="flex items-center focus:outline-none shrink-0 py-1"
+          >
+            <EaiplLogo className="h-[88px] sm:h-[94px] md:h-[96px] lg:h-[100px] w-auto object-contain transition-transform hover:scale-[1.01]" />
+          </button>
 
-          {/* Desktop Navigation Menu */}
+          {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() =>
-                  link.hasDropdown ? setActiveDropdown(link.hasDropdown) : setActiveDropdown(null)
-                }
+                onMouseEnter={() => {
+                  if (link.hasDropdown) setActiveDropdown(link.hasDropdown);
+                }}
               >
-                <a
-                  href={link.href}
-                  className="px-3 py-2 rounded-lg text-xs xl:text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/60 transition-all flex items-center gap-1"
+                <button
+                  onClick={() => handleNavClick(link.view)}
+                  className={`px-3 py-2 rounded-lg text-xs xl:text-sm font-semibold transition-all flex items-center gap-1 ${
+                    currentView === link.view
+                      ? 'text-[#1570EF] bg-[#EAF5FF] font-bold'
+                      : 'text-[#475569] hover:text-[#1570EF] hover:bg-[#EAF5FF]'
+                  }`}
                 >
                   {link.label}
                   {link.hasDropdown && (
                     <ChevronDown
-                      className={`w-3.5 h-3.5 text-[#C59B27] transition-transform ${
+                      className={`w-3.5 h-3.5 text-[#1570EF] transition-transform ${
                         activeDropdown === link.hasDropdown ? 'rotate-180' : ''
                       }`}
                     />
                   )}
-                </a>
+                </button>
               </div>
             ))}
           </nav>
@@ -150,13 +160,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={() => onOpenConsultation('Site Survey')}
-              className="px-3.5 py-2 rounded-lg text-xs font-semibold border border-slate-700 text-slate-200 hover:bg-slate-800 hover:text-white transition-all"
+              className="px-3.5 py-2 rounded-lg text-xs font-semibold border border-[#D7E8F3] text-[#0F172A] hover:bg-[#EAF5FF] hover:border-[#1570EF]/40 transition-all"
             >
               Book Site Survey
             </button>
             <button
               onClick={() => onOpenConsultation('RFP')}
-              className="px-4 py-2 rounded-lg text-xs font-bold bg-[#C59B27] hover:bg-amber-600 text-slate-950 transition-all shadow-md flex items-center gap-1.5"
+              className="px-4 py-2 rounded-lg text-xs font-bold bg-[#1570EF] hover:bg-[#1258C5] text-white transition-all shadow-xs flex items-center gap-1.5"
             >
               <FileText className="w-3.5 h-3.5" />
               Submit RFP
@@ -166,7 +176,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-slate-800 text-slate-200 hover:text-white lg:hidden border border-slate-700"
+            className="p-2 rounded-lg bg-[#EDF8FB] text-[#0F172A] hover:bg-[#EAF5FF] lg:hidden border border-[#D7E8F3]"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -183,38 +193,42 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.15 }}
             onMouseLeave={() => setActiveDropdown(null)}
-            className="hidden lg:block absolute left-0 right-0 bg-[#0B132B] text-white border-b border-slate-800 shadow-2xl py-6 px-8 z-50"
+            className="hidden lg:block absolute left-0 right-0 bg-white text-[#0F172A] border-b border-[#D7E8F3] shadow-lg py-6 px-8 z-50 max-h-[80vh] overflow-y-auto"
           >
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#C59B27] uppercase tracking-wider">
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#D7E8F3]">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#1570EF] uppercase tracking-wider">
                   <Layers className="w-4 h-4" />
                   Turnkey Engineering Solutions Portfolio
                 </div>
-                <a
-                  href="#solutions"
-                  onClick={() => setActiveDropdown(null)}
-                  className="text-xs text-slate-400 hover:text-white flex items-center gap-1"
+                <button
+                  onClick={() => handleNavClick('solutions')}
+                  className="text-xs text-[#1570EF] font-bold hover:underline flex items-center gap-1"
                 >
-                  Explore All 8 Core Domains <ExternalLink className="w-3 h-3" />
-                </a>
+                  View Solutions Master Page <ExternalLink className="w-3 h-3" />
+                </button>
               </div>
 
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-3 xl:grid-cols-4 gap-3">
                 {SOLUTIONS.map((sol) => (
-                  <a
+                  <button
                     key={sol.id}
-                    href="#solutions"
-                    onClick={() => setActiveDropdown(null)}
-                    className="p-3 rounded-lg bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-[#C59B27]/50 transition-all group"
+                    onClick={() => handleNavClick('solution-detail', sol.slug)}
+                    className="p-3 rounded-xl bg-[#F8FAFC] hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#1570EF]/50 transition-all text-left flex items-start gap-3 group"
                   >
-                    <div className="font-semibold text-sm text-white group-hover:text-[#C59B27] transition-colors mb-1">
-                      {sol.title}
+                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E2E8F0] text-[#1570EF] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#1570EF] transition-colors p-0.5">
+                      <IconAsset category="solutions" src={sol.icon} alt={sol.title} className="w-8 h-8 text-[#1570EF] group-hover:brightness-200" />
                     </div>
-                    <div className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
-                      {sol.tagline}
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-xs text-[#0F172A] group-hover:text-[#1570EF] transition-colors flex items-center justify-between gap-1">
+                        <span className="truncate">{sol.title}</span>
+                        <ArrowRight className="w-3 h-3 text-[#1570EF] opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                      </div>
+                      <div className="text-[11px] text-[#64748B] line-clamp-1 mt-0.5">
+                        {sol.tagline}
+                      </div>
                     </div>
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
@@ -231,38 +245,42 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.15 }}
             onMouseLeave={() => setActiveDropdown(null)}
-            className="hidden lg:block absolute left-0 right-0 bg-[#0B132B] text-white border-b border-slate-800 shadow-2xl py-6 px-8 z-50"
+            className="hidden lg:block absolute left-0 right-0 bg-white text-[#0F172A] border-b border-[#D7E8F3] shadow-lg py-6 px-8 z-50"
           >
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#C59B27] uppercase tracking-wider">
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#D7E8F3]">
+                <div className="flex items-center gap-2 text-xs font-bold text-[#1570EF] uppercase tracking-wider">
                   <Building2 className="w-4 h-4" />
                   Industry Sectors & Specialized Facilities
                 </div>
-                <a
-                  href="#industries"
-                  onClick={() => setActiveDropdown(null)}
-                  className="text-xs text-slate-400 hover:text-white flex items-center gap-1"
+                <button
+                  onClick={() => handleNavClick('industries')}
+                  className="text-xs text-[#1570EF] font-bold hover:underline flex items-center gap-1"
                 >
-                  View All Sectors <ExternalLink className="w-3 h-3" />
-                </a>
+                  Explore All Industries <ExternalLink className="w-3 h-3" />
+                </button>
               </div>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                 {INDUSTRIES.map((ind) => (
-                  <a
+                  <button
                     key={ind.id}
-                    href="#industries"
-                    onClick={() => setActiveDropdown(null)}
-                    className="p-3.5 rounded-lg bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800 hover:border-[#C59B27]/50 transition-all group"
+                    onClick={() => handleNavClick('industries')}
+                    className="p-3 rounded-xl bg-[#F8FAFC] hover:bg-[#EFF6FF] border border-[#E2E8F0] hover:border-[#1570EF]/50 transition-all text-left flex items-start gap-3 group"
                   >
-                    <div className="font-semibold text-sm text-white group-hover:text-[#C59B27] transition-colors mb-1">
-                      {ind.title}
+                    <div className="w-9 h-9 rounded-lg bg-white border border-[#E2E8F0] text-[#1570EF] flex items-center justify-center shrink-0 mt-0.5 p-0.5">
+                      <IconAsset category="industries" src={ind.icon} name={ind.id} alt={ind.title} className="w-8 h-8 text-[#1570EF]" />
                     </div>
-                    <div className="text-xs text-slate-400 line-clamp-2">
-                      {ind.subtitle}
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-xs text-[#0F172A] group-hover:text-[#1570EF] transition-colors flex items-center justify-between">
+                        <span>{ind.name}</span>
+                        <ArrowRight className="w-3 h-3 text-[#1570EF] opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                      </div>
+                      <div className="text-[11px] text-[#64748B] line-clamp-1 mt-0.5">
+                        {ind.description}
+                      </div>
                     </div>
-                  </a>
+                  </button>
                 ))}
               </div>
             </div>
@@ -277,27 +295,30 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-[#0B132B] border-b border-slate-800 text-white overflow-hidden"
+            className="lg:hidden bg-white border-b border-[#D7E8F3] text-[#0F172A] overflow-hidden"
           >
             <div className="px-4 py-6 space-y-3">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-white"
+                  onClick={() => handleNavClick(link.view)}
+                  className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-semibold ${
+                    currentView === link.view
+                      ? 'text-[#1570EF] bg-[#EAF5FF] font-bold'
+                      : 'text-[#475569] hover:bg-[#EAF5FF] hover:text-[#1570EF]'
+                  }`}
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
 
-              <div className="pt-4 border-t border-slate-800 space-y-2">
+              <div className="pt-4 border-t border-[#E2E8F0] space-y-2">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenConsultation('Site Survey');
                   }}
-                  className="w-full py-2.5 px-4 rounded-lg text-xs font-semibold border border-slate-700 text-slate-200 hover:bg-slate-800 text-center"
+                  className="w-full py-2.5 px-3 rounded-lg border border-[#CBD5E1] text-xs font-bold text-[#0F172A]"
                 >
                   Book Site Survey
                 </button>
@@ -306,10 +327,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                     setMobileMenuOpen(false);
                     onOpenConsultation('RFP');
                   }}
-                  className="w-full py-2.5 px-4 rounded-lg text-xs font-bold bg-[#C59B27] hover:bg-amber-600 text-slate-950 text-center flex items-center justify-center gap-2"
+                  className="w-full py-2.5 px-3 rounded-lg bg-[#1570EF] text-white text-xs font-bold"
                 >
-                  <FileText className="w-4 h-4" />
-                  Submit Request for Proposal (RFP)
+                  Submit RFP / BOQ
                 </button>
               </div>
             </div>

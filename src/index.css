@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  --font-germania: "Germania One", cursive, sans-serif;
+}
+
+.font-germania {
+  font-family: "Germania One", cursive, sans-serif;
+}

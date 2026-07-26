@@ -9,13 +9,20 @@ export interface MetricItem {
 export interface SolutionCategory {
   id: string;
   title: string;
+  slug: string;
   tagline: string;
   icon: string;
   description: string;
+  heroImage?: string;
+  gallery?: string[];
+  applications?: string[];
   keyFeatures: string[];
   equipmentBrands: string[];
   sampleDeliverables: string[];
   badge?: string;
+  relatedIndustries?: string[];
+  faq?: { question: string; answer: string }[];
+  cta?: string;
 }
 
 export interface IndustrySector {
@@ -29,13 +36,18 @@ export interface IndustrySector {
   deployedSolutions: string[];
   keyClients: string[];
   caseStudyTitle?: string;
+  // Aliases for compatibility
+  name?: string;
+  description?: string;
+  heroImage?: string;
+  sector?: string;
 }
 
 export interface ProjectCaseStudy {
   id: string;
   title: string;
   clientName: string;
-  clientType: 'Government' | 'Corporate' | 'Education' | 'Healthcare' | 'Hospitality' | 'Auditorium';
+  clientType: string;
   location: string;
   year: string;
   category: string;
@@ -48,6 +60,10 @@ export interface ProjectCaseStudy {
   heroImage: string;
   acousticsSpecs?: string;
   completionBadge?: string;
+  keyHighlights?: string[];
+  sector?: string;
+  amcActive?: boolean;
+  status?: string;
 }
 
 export interface EngineeringStep {
@@ -83,23 +99,25 @@ export interface ClientTestimonial {
 }
 
 export interface BranchOffice {
+  id?: string;
   city: string;
+  officeName?: string;
   type: string;
+  officeType?: 'Head Office' | 'Regional Office';
   address: string;
   phone: string;
   email: string;
+  mapQuery?: string;
 }
 
 export interface ConsultationFormData {
   fullName: string;
+  organization: string;
   email: string;
   phone: string;
-  organization: string;
-  clientType: string;
-  serviceCategory: string;
-  projectBudget: string;
-  projectTimeline: string;
-  location: string;
-  projectDetails: string;
+  projectType: string;
+  estimatedBudget: string;
+  timeline: string;
+  requirements: string;
   requestType: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket';
 }

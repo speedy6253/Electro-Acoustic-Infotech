@@ -28,26 +28,26 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.2 }}
-          className="relative w-full max-w-4xl bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden my-8"
+          className="relative w-full max-w-4xl bg-white rounded-xl shadow-xl border border-[#D7E8F3] overflow-hidden my-8"
         >
           {/* Header Image Frame */}
-          <div className="relative h-64 sm:h-80 w-full bg-slate-900 overflow-hidden">
+          <div className="relative h-64 sm:h-80 w-full bg-[#0F172A] overflow-hidden">
             <img
               src={project.heroImage}
               alt={project.title}
-              className="w-full h-full object-cover opacity-80"
+              className="w-full h-full object-cover opacity-85"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/60 to-transparent" />
 
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-slate-950/60 hover:bg-slate-900 text-white backdrop-blur-md transition-colors z-10 border border-white/20"
+              className="absolute top-4 right-4 p-2 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-md transition-colors z-10 border border-white/20"
               aria-label="Close case study modal"
             >
               <X className="w-5 h-5" />
@@ -55,14 +55,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
             <div className="absolute bottom-6 left-6 right-6 text-white">
               <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#C59B27] text-slate-950">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1570EF] text-white shadow-2xs">
                   {project.category}
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/20 backdrop-blur-md text-white border border-white/20">
                   {project.clientType}
                 </span>
                 {project.completionBadge && (
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/80 text-white flex items-center gap-1">
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-600 text-white flex items-center gap-1 shadow-2xs">
                     <CheckCircle2 className="w-3 h-3" />
                     {project.completionBadge}
                   </span>
@@ -73,17 +73,17 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 {project.title}
               </h2>
 
-              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-300">
+              <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-200">
                 <div className="flex items-center gap-1.5">
-                  <Building2 className="w-4 h-4 text-[#C59B27]" />
+                  <Building2 className="w-4 h-4 text-[#2E90FA]" />
                   <span>{project.clientName}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-[#C59B27]" />
+                  <MapPin className="w-4 h-4 text-[#2E90FA]" />
                   <span>{project.location}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-[#C59B27]" />
+                  <Calendar className="w-4 h-4 text-[#2E90FA]" />
                   <span>Executed in {project.year}</span>
                 </div>
               </div>
@@ -91,35 +91,35 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           </div>
 
           {/* Body Details */}
-          <div className="p-6 sm:p-8 max-h-[60vh] overflow-y-auto space-y-6">
+          <div className="p-6 sm:p-8 max-h-[60vh] overflow-y-auto space-y-6 bg-white">
             {/* Executive Summary */}
             <div>
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+              <h3 className="text-xs font-bold text-[#64748B] uppercase tracking-wider mb-2">
                 Executive Overview
               </h3>
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              <p className="text-[#0F172A] text-sm sm:text-base leading-relaxed">
                 {project.summary}
               </p>
             </div>
 
             {/* Challenge & Solution Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 bg-[#EDF8FB] rounded-xl border border-[#D7E8F3]">
               <div>
-                <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2 mb-2">
+                <h4 className="text-sm font-bold text-[#0F172A] flex items-center gap-2 mb-2">
                   <span className="w-2 h-2 rounded-full bg-rose-500" />
                   Technical Challenge
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   {project.challenge}
                 </p>
               </div>
 
               <div>
-                <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <h4 className="text-sm font-bold text-[#0F172A] flex items-center gap-2 mb-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600" />
                   EAIPL Integrated Engineering Solution
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#475569] leading-relaxed">
                   {project.solution}
                 </p>
               </div>
@@ -127,20 +127,20 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
             {/* Key Impact Metrics */}
             <div>
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+              <h3 className="text-xs font-bold text-[#64748B] uppercase tracking-wider mb-3">
                 Measured Key Performance Indicators
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {project.impactMetrics.map((metric, idx) => (
                   <div
                     key={idx}
-                    className="p-3 bg-slate-900 text-white rounded-lg border border-slate-800"
+                    className="p-3 bg-[#F7FCFF] text-[#0F172A] rounded-lg border border-[#D7E8F3]"
                   >
-                    <div className="flex items-center gap-2 text-[#C59B27] text-xs font-bold mb-1">
+                    <div className="flex items-center gap-2 text-[#1570EF] text-xs font-bold mb-1">
                       <Sparkles className="w-3.5 h-3.5" />
                       Metric 0{idx + 1}
                     </div>
-                    <p className="text-xs font-medium text-slate-200">{metric}</p>
+                    <p className="text-xs font-medium text-[#475569]">{metric}</p>
                   </div>
                 ))}
               </div>
@@ -148,16 +148,16 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
             {/* Installed OEM Hardware Stack */}
             <div>
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+              <h3 className="text-xs font-bold text-[#64748B] uppercase tracking-wider mb-3">
                 Deployed OEM Hardware & Technology Stack
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.installedEquipment.map((item, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1.5 bg-slate-100 text-slate-800 rounded-lg text-xs font-semibold border border-slate-200 flex items-center gap-1.5"
+                    className="px-3 py-1.5 bg-[#EDF8FB] text-[#0F172A] rounded-lg text-xs font-semibold border border-[#D7E8F3] flex items-center gap-1.5"
                   >
-                    <Layers className="w-3.5 h-3.5 text-[#C59B27]" />
+                    <Layers className="w-3.5 h-3.5 text-[#1570EF]" />
                     {item}
                   </span>
                 ))}
@@ -166,8 +166,8 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
 
             {/* Acoustic Specs if available */}
             {project.acousticsSpecs && (
-              <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-900 flex items-start gap-2">
-                <Award className="w-4 h-4 text-[#C59B27] shrink-0 mt-0.5" />
+              <div className="p-4 bg-[#EDF8FB] border border-[#D7E8F3] rounded-lg text-xs text-[#0F172A] flex items-start gap-2">
+                <Award className="w-4 h-4 text-[#1570EF] shrink-0 mt-0.5" />
                 <div>
                   <strong>Electro-Acoustic Parameters:</strong> {project.acousticsSpecs}
                 </div>
@@ -176,15 +176,15 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           </div>
 
           {/* Modal Actions Footer */}
-          <div className="bg-slate-50 px-6 py-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="text-xs text-slate-500">
+          <div className="bg-[#EDF8FB] px-6 py-4 border-t border-[#D7E8F3] flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="text-xs text-[#64748B]">
               Verified Project Execution • Quality Standard ISO 9001:2015
             </div>
 
             <div className="flex items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={onClose}
-                className="flex-1 sm:flex-initial px-4 py-2 border border-slate-300 text-slate-700 hover:bg-slate-100 font-medium text-xs rounded-lg transition-colors"
+                className="flex-1 sm:flex-initial px-4 py-2 border border-[#D7E8F3] text-[#475569] hover:bg-white font-medium text-xs rounded-lg transition-colors"
               >
                 Close
               </button>
@@ -193,10 +193,10 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                   onClose();
                   onOpenConsultation();
                 }}
-                className="flex-1 sm:flex-initial px-5 py-2 bg-[#0B132B] hover:bg-slate-900 text-white font-semibold text-xs rounded-lg shadow-sm transition-all flex items-center justify-center gap-2"
+                className="flex-1 sm:flex-initial px-5 py-2 bg-[#1570EF] hover:bg-[#1258C5] text-white font-semibold text-xs rounded-lg shadow-2xs transition-all flex items-center justify-center gap-2"
               >
                 <span>Request Similar Turnkey Solution</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#C59B27]" />
+                <ExternalLink className="w-3.5 h-3.5 text-white" />
               </button>
             </div>
           </div>
