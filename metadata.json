@@ -1,0 +1,6 @@
+{
+  "name": "EAIPL Enterprise Website",
+  "description": "Production-ready website for Electro Acoustic Infotech Pvt. Ltd. (EAIPL), featuring turnkey electro-acoustic engineering, AV integration, stage machinery, and 24/7 AMC support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
