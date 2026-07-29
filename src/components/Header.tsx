@@ -19,6 +19,7 @@ import { IconAsset } from './IconAsset';
 
 export type NavView =
   | 'home'
+  | 'about'
   | 'solutions'
   | 'solution-detail'
   | 'industries'
@@ -52,6 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navLinks: NavLinkItem[] = [
     { label: 'Home', id: 'home', view: 'home', href: '/' },
+    { label: 'About', id: 'about', view: 'about', href: '/about' },
     { label: 'Solutions', id: 'solutions', view: 'solutions', href: '/solutions', hasDropdown: 'solutions' },
     { label: 'Industries', id: 'industries', view: 'industries', href: '/industries', hasDropdown: 'industries' },
     { label: 'Projects', id: 'projects', view: 'projects', href: '/projects' },

@@ -10,6 +10,7 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { Header, NavView } from './components/Header';
 import { HomePage } from './components/HomePage';
+import { AboutPage } from './components/AboutPage';
 import { SolutionsPage } from './components/SolutionsPage';
 import { SolutionDetailPage } from './components/SolutionDetailPage';
 import { IndustriesPage } from './components/IndustriesPage';
@@ -57,6 +58,7 @@ function AppContent() {
     const path = location.pathname.toLowerCase();
     if (path.startsWith('/solutions/')) return 'solution-detail';
     if (path === '/solutions') return 'solutions';
+    if (path === '/about') return 'about';
     if (path === '/industries') return 'industries';
     if (path === '/projects') return 'projects';
     if (path === '/media') return 'media';
@@ -74,6 +76,7 @@ function AppContent() {
     if (hash) {
       if (hash === 'media') navigate('/media');
       else if (hash === 'contact') navigate('/contact');
+      else if (hash === 'about') navigate('/about');
       else if (hash === 'solutions') navigate('/solutions');
       else if (hash.startsWith('solutions/')) navigate(`/${hash}`);
       else if (hash === 'industries') navigate('/industries');
@@ -93,6 +96,8 @@ function AppContent() {
       navigate(`/solutions/${param}`);
     } else if (view === 'solutions') {
       navigate('/solutions');
+    } else if (view === 'about') {
+      navigate('/about');
     } else if (view === 'industries') {
       navigate('/industries');
     } else if (view === 'projects') {
@@ -152,6 +157,10 @@ function AppContent() {
                     onSelectProject={(project) => setSelectedProjectModal(project)}
                   />
                 }
+              />
+              <Route
+                path="/about"
+                element={<AboutPage onOpenConsultation={handleOpenConsultation} />}
               />
               <Route
                 path="/solutions"

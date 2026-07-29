@@ -1,87 +1,123 @@
 import React from 'react';
-import { Workflow } from 'lucide-react';
-import { IconAsset } from './IconAsset';
+import { motion } from 'motion/react';
+import { Workflow, Headphones, PenTool, Wrench, ShieldCheck, GraduationCap, CheckCircle } from 'lucide-react';
 
 interface ProcessSectionProps {
-  onOpenConsultation: (type?: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket') => void;
+  onOpenConsultation?: (type?: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket') => void;
 }
 
-export const ProcessSection: React.FC<ProcessSectionProps> = () => {
-  const processSteps = [
+export const ProcessSection: React.FC<ProcessSectionProps> = ({ onOpenConsultation }) => {
+  const timelineSteps = [
     {
-      title: 'Site Survey',
-      desc: 'Comprehensive on-site acoustic measurement, ambient noise mapping, and structural assessment.',
-      icon: '/assets/icons/process/site-survey.png'
+      step: '01',
+      title: 'Consultation & Site Survey',
+      desc: 'In-depth requirement analysis, acoustic RT60 measurement, ambient noise mapping, and structural assessment.',
+      icon: Headphones,
+      deliverable: 'Acoustic & AV Briefing Report',
     },
     {
-      title: 'System Design',
-      desc: '3D EASE acoustic ray-tracing, AutoCAD schematics, and BOQ system architecture formulation.',
-      icon: '/assets/icons/process/design.png'
+      step: '02',
+      title: 'System Design & 3D Simulation',
+      desc: '3D EASE acoustic ray-tracing, CAD schematics, BOQ formulation, and OEM equipment selection.',
+      icon: PenTool,
+      deliverable: '3D Simulation & CAD Layouts',
     },
     {
-      title: 'Procurement',
-      desc: 'Direct OEM sourcing of genuine pro-audio, 4K display walls, and EN54 safety hardware.',
-      icon: '/assets/icons/process/procurement.png'
+      step: '03',
+      title: 'Precision Supply & Installation',
+      desc: 'Factory rack fabrication, structured fiber cabling, stage mounting, and loudspeaker array rigging.',
+      icon: Wrench,
+      deliverable: 'Class-I Rack & Cabling Assembly',
     },
     {
-      title: 'Installation',
-      desc: 'Factory rack fabrication, structured fiber cabling, and precision stage mounting.',
-      icon: '/assets/icons/process/installation.png'
+      step: '04',
+      title: 'Tuning, Calibration & Maintenance',
+      desc: 'DSP equalisation, STI speech intelligibility testing, video matrix tuning, and 24/7 SLA AMC coverage.',
+      icon: ShieldCheck,
+      deliverable: 'ISO 9001 Testing & SLA AMC',
     },
     {
-      title: 'Testing',
-      desc: 'Multi-point STI speech intelligibility calibration, DSP tuning, and video matrix testing.',
-      icon: '/assets/icons/process/testing.png'
+      step: '05',
+      title: 'Operator Training & Handover',
+      desc: 'Comprehensive hands-on client staff training, as-built documentation, and formal project commissioning.',
+      icon: GraduationCap,
+      deliverable: 'Certified Operator Handover',
     },
-    {
-      title: 'Handover',
-      desc: 'Complete as-built documentation, operator training, and ISO certified warranty handover.',
-      icon: '/assets/icons/process/handover.png'
-    }
   ];
 
   return (
-    <section id="process" className="py-16 sm:py-20 bg-[#F8FAFC] text-[#0F172A] font-sans border-b border-[#E2E8F0]">
+    <section id="process" className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 via-white to-emerald-50/20 text-slate-900 font-sans border-b border-emerald-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFF6FF] text-[#1D4ED8] text-xs font-bold uppercase tracking-wider border border-[#BFDBFE]">
-            <Workflow className="w-3.5 h-3.5" />
-            Engineering Process
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+            <Workflow className="w-3.5 h-3.5 text-emerald-600" />
+            Brochure Execution Standard
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A]">
-            6-Phase Turnkey Process
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            Animated Process Timeline
           </h2>
-          <p className="text-sm sm:text-base text-[#475569] leading-relaxed">
-            ISO 9001:2015 quality-certified lifecycle for zero-defect turnkey system integration.
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Consultation → Design → Installation → Maintenance → Training: EAIPL’s ISO 9001:2015 turnkey engineering lifecycle.
           </p>
         </div>
 
-        {/* Six Clean Icon Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {processSteps.map((step, index) => {
-            return (
-              <div
-                key={index}
-                className="bg-white rounded-xl border border-[#E2E8F0] p-6 shadow-2xs space-y-3 hover:border-[#1570EF]/40 hover:shadow-md transition-all"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="w-13 h-13 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] text-[#1570EF] flex items-center justify-center shrink-0 p-0.5">
-                    <IconAsset category="process" src={step.icon} alt={step.title} className="w-11 h-11 text-[#1570EF]" />
+        {/* Timeline Grid with Connecting Line */}
+        <div className="relative">
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-emerald-200 via-emerald-400 to-teal-500 -translate-y-12 z-0" />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 relative z-10">
+            {timelineSteps.map((item, idx) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.div
+                  key={item.step}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.12 }}
+                  className="bg-white rounded-2xl p-6 border border-emerald-100 shadow-xs hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between group relative overflow-hidden"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center font-bold group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-xs">
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
+                        STEP {item.step}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                  <span className="text-xs font-mono font-extrabold text-[#94A3B8] bg-[#F8FAFC] px-2.5 py-1 rounded border border-[#E2E8F0]">
-                    0{index + 1}
-                  </span>
-                </div>
-                <h3 className="text-base font-bold text-[#0F172A]">
-                  {step.title}
-                </h3>
-                <p className="text-xs text-[#64748B] leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-            );
-          })}
+
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-semibold text-emerald-700">
+                    <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>{item.deliverable}</span>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
+
+        {onOpenConsultation && (
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => onOpenConsultation('Site Survey')}
+              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs transition-all inline-flex items-center gap-2"
+            >
+              <span>Initiate Phase 01: On-site Acoustic Consultation</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

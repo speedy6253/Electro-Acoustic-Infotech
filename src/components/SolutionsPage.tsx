@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Layers, ArrowRight, Sparkles, CheckCircle2, Shield, Search } from 'lucide-react';
+import { Layers, ArrowRight, Sparkles, CheckCircle2, Search } from 'lucide-react';
 import { SOLUTIONS } from '../data/eaiplData';
 import { CompanyHeaderBrand } from './CompanyHeaderBrand';
 import { IconAsset } from './IconAsset';
+import { ExpertiseDiagramSection } from './ExpertiseDiagramSection';
+import { ProcessSection } from './ProcessSection';
 
 interface SolutionsPageProps {
   onOpenConsultation: (type?: 'RFP' | 'Site Survey' | 'Consultation' | 'AMC Ticket') => void;
@@ -51,7 +53,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({
               </h1>
 
               <p className="text-sm sm:text-base text-[#475569] leading-relaxed max-w-2xl">
-                Explore our 13 core electro-acoustic, audio-visual, security, stage lighting, and building automation domains engineered for government secretariats, defense facilities, corporate headquarters, and medical centers.
+                Explore our turnkey electro-acoustic, audio-visual, security, stage lighting, and building automation domains engineered for government secretariats, defense facilities, corporate headquarters, and medical centers.
               </p>
             </div>
 
@@ -69,7 +71,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({
       </section>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
         {/* Search & Filter Bar */}
         <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#E2E8F0] shadow-2xs flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="relative flex-1 max-w-md">
@@ -157,12 +159,22 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({
                   onClick={() => onNavigateSolution(sol.slug)}
                   className="flex-1 py-2 px-3 rounded-lg bg-[#1570EF] hover:bg-[#1258C5] text-white text-xs font-bold transition-all shadow-2xs flex items-center justify-center gap-2"
                 >
-                  <span>View Dedicated Page</span>
+                  <span>View Dedicated Solution Page</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Detailed Expertise Matrix */}
+        <div className="pt-6">
+          <ExpertiseDiagramSection />
+        </div>
+
+        {/* Engineering Process Timeline */}
+        <div className="pt-6">
+          <ProcessSection onOpenConsultation={onOpenConsultation} />
         </div>
       </div>
     </div>

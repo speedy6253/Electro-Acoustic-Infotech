@@ -5,11 +5,9 @@ import { AboutSection } from './AboutSection';
 import { SolutionsSection } from './SolutionsSection';
 import { IndustriesSection } from './IndustriesSection';
 import { ProjectsSection } from './ProjectsSection';
-import { ProcessSection } from './ProcessSection';
 import { PartnersSection } from './PartnersSection';
 import { TestimonialsSection } from './TestimonialsSection';
 import { EnterpriseCTA } from './EnterpriseCTA';
-import { FaqSection } from './FaqSection';
 import { NavView } from './Header';
 import { ProjectCaseStudy } from '../types';
 
@@ -25,48 +23,51 @@ export const HomePage: React.FC<HomePageProps> = ({
   onSelectProject,
 }) => {
   return (
-    <main>
-      {/* 1. Hero Section */}
+    <main className="space-y-0">
+      {/* 1. Hero Banner */}
       <Hero onOpenConsultation={onOpenConsultation} />
 
-      {/* 2. Trust Strip */}
-      <TrustStrip />
+      {/* 2. Company Overview (short version only) */}
+      <AboutSection
+        onOpenConsultation={onOpenConsultation}
+        onNavigate={onNavigate}
+      />
 
-      {/* 3. About Section */}
-      <AboutSection onOpenConsultation={onOpenConsultation} />
-
-      {/* 4. Solutions Section */}
+      {/* 3. Core Solutions / Products Preview */}
       <SolutionsSection
+        previewOnly={true}
         onOpenConsultation={onOpenConsultation}
         onNavigate={onNavigate}
       />
 
-      {/* 5. Industries Section */}
+      {/* 4. Featured Industries (preview only) */}
       <IndustriesSection
+        previewOnly={true}
         onOpenConsultation={onOpenConsultation}
         onNavigate={onNavigate}
       />
 
-      {/* 6. Featured Projects Showcase */}
+      {/* 5. Featured Projects (4–6 projects only) */}
       <ProjectsSection
+        previewOnly={true}
         onSelectProject={onSelectProject}
         onOpenConsultation={onOpenConsultation}
+        onNavigate={onNavigate}
       />
 
-      {/* 7. Engineering Process Section */}
-      <ProcessSection onOpenConsultation={onOpenConsultation} />
-
-      {/* 8. OEM Partners Section */}
-      <PartnersSection onOpenConsultation={onOpenConsultation} />
-
-      {/* 9. Testimonials & Client Trust */}
+      {/* 6. Why Choose EAIPL / Trust Indicators */}
+      <TrustStrip />
       <TestimonialsSection />
 
-      {/* 10. Enterprise CTA */}
-      <EnterpriseCTA onOpenConsultation={onOpenConsultation} />
+      {/* 7. Major OEM Partners (preview) */}
+      <PartnersSection
+        previewOnly={true}
+        onNavigate={onNavigate}
+        onOpenConsultation={onOpenConsultation}
+      />
 
-      {/* 11. FAQ Knowledge Base */}
-      <FaqSection />
+      {/* 8. CTA (Request Consultation / Contact) */}
+      <EnterpriseCTA onOpenConsultation={onOpenConsultation} />
     </main>
   );
 };

@@ -113,6 +113,43 @@ export interface BranchOffice {
   mapQuery?: string;
 }
 
+export interface LeadershipMember {
+  id: string;
+  name: string;
+  role: string;
+  designation: string;
+  credentials: string;
+  bio: string;
+  image: string;
+}
+
+export interface CoreValue {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  iconName: string;
+}
+
+export interface ExpertiseDomain {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  keySpecs: string[];
+  keyBrands: string[];
+  icon: string;
+}
+
+export interface DirectoryClient {
+  id: string;
+  name: string;
+  category: 'Government & Legislative' | 'Judiciary & Defense' | 'Corporate & PSUs' | 'Education & Healthcare' | 'Hospitality & Performing Arts' | 'Clubs & Commercial';
+  location: string;
+  projectScope: string;
+  yearInstalled?: string;
+}
+
 export interface ConsultationFormData {
   fullName: string;
   organization: string;
